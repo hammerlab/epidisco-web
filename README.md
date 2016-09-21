@@ -9,7 +9,7 @@ Quickstart
 First, set your app’s secret key as an environment variable. For example, add the following to `.bashrc` or `.bash_profile`.
 
 ```sourceCode
-export EPIDISCO-WEB_SECRET='something-really-secret'
+export EPIDISCO_WEB_SECRET='something-really-secret'
 ```
 
 Before running shell commands, set the `FLASK_APP` and `FLASK_DEBUG` environment variables :
