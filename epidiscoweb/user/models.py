@@ -4,8 +4,8 @@ import datetime as dt
 
 from flask_login import UserMixin
 
-from epidisco-web.database import Column, Model, SurrogatePK, db, reference_col, relationship
-from epidisco-web.extensions import bcrypt
+from epidiscoweb.database import Column, Model, SurrogatePK, db, reference_col, relationship
+from epidiscoweb.extensions import bcrypt
 
 
 class Role(SurrogatePK, Model):

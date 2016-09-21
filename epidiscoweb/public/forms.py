@@ -4,7 +4,7 @@ from flask_wtf import Form
 from wtforms import PasswordField, StringField
 from wtforms.validators import DataRequired
 
-from epidisco-web.user.models import User
+from epidiscoweb.user.models import User
 
 
 class LoginForm(Form):

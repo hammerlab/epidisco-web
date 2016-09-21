@@ -2,8 +2,8 @@
 """Create an application instance."""
 from flask.helpers import get_debug_flag
 
-from epidisco-web.app import create_app
-from epidisco-web.settings import DevConfig, ProdConfig
+from epidiscoweb.app import create_app
+from epidiscoweb.settings import DevConfig, ProdConfig
 
 CONFIG = DevConfig if get_debug_flag() else ProdConfig
 

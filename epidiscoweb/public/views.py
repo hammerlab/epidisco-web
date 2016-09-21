@@ -3,11 +3,11 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import login_required, login_user, logout_user
 
-from epidisco-web.extensions import login_manager
-from epidisco-web.public.forms import LoginForm
-from epidisco-web.user.forms import RegisterForm
-from epidisco-web.user.models import User
-from epidisco-web.utils import flash_errors
+from epidiscoweb.extensions import login_manager
+from epidiscoweb.public.forms import LoginForm
+from epidiscoweb.user.forms import RegisterForm
+from epidiscoweb.user.models import User
+from epidiscoweb.utils import flash_errors
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 

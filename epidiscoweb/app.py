@@ -2,10 +2,10 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from epidisco-web import commands, public, user
-from epidisco-web.assets import assets
-from epidisco-web.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate
-from epidisco-web.settings import ProdConfig
+from epidiscoweb import commands, public, user
+from epidiscoweb.assets import assets
+from epidiscoweb.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate
+from epidiscoweb.settings import ProdConfig
 
 
 def create_app(config_object=ProdConfig):
