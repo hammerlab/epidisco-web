@@ -90,3 +90,4 @@ ENV/
 
 # Bower
 bower_components
+epidiscoweb/static/libs
