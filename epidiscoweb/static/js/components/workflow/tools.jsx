@@ -12,33 +12,30 @@ const styles = {
   },
 };
 
-const tools = () => (
-  <div stye={styles.block}>
-    <Toggle
-      label="Simple"
-      style={styles.toggle}
-    />
-    <Toggle
-      label="Toggled by default"
-      defaultToggled={true}
-      style={styles.toggle}
-    />
-    <Toggle
-      label="Disabled"
-      disabled={true}
-      style={styles.toggle}
-    />
-    <Toggle
-      label="Label on the right"
-      labelPosition="right"
-      style={styles.toggle}
-    />
-  </div>
-);
-
 export default () => (
-   <EpiSection
-    title="Additional tools"
-    children={tools}
-   />
+   <EpiSection title="Additional tools">
+    <div style={styles.block}>
+      <Toggle
+        label="MuTect-2"
+        style={styles.toggle}
+        labelPosition="right"
+      />
+      <Toggle
+        label="seq2HLA"
+        style={styles.toggle}
+        labelPosition="right"
+      />
+      <Toggle
+        label="SomaticSniper"
+        style={styles.toggle}
+        defaultToggled={true}
+        labelPosition="right"
+      />
+      <Toggle
+        label="VarScan"
+        style={styles.toggle}
+        labelPosition="right"
+      />
+    </div>
+   </EpiSection>
 );
