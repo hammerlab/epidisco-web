@@ -1,0 +1,25 @@
+@import "../globalstyle.scss";
+
+:local .root {
+  background: #f8f8f8;
+  borderTop: solid 1px #e0e0e0;
+}
+
+:local .description {
+  background: #ffffff;
+  overflow: auto;
+  padding: 10px 20px 0;
+  marginTop: 0;
+  marginBottom: 0;
+}
+
+:local .paper {
+  background-color: gray;
+  margin-bottom: 32;
+}
+
+:local .block {
+  borderRadius: 0 0 2px 0;
+  padding: 14px 24px 24px;
+  margin: 0;
+}

@@ -1,13 +1,17 @@
 module.exports = {
-    entry: "./epidiscoweb/static/js/epidiscoweb.js",
+    entry: "./epidiscoweb/static/js/main.jsx",
     output: {
         path: "./epidiscoweb/static/js/dist/",
+        publicPath: "/static/js/dist/",
         filename: "bundle.js"
+    },
+    resolve: {
+     extensions: ['', '.js', '.jsx', '.scss']
     },
     module: {
         loaders: [
             { 
-                test   : /.js$/,
+                test: /(\.js|\.jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel',
                 query: {
@@ -15,8 +19,14 @@ module.exports = {
                 }
             },
             { 
-                test: /\.css$/, 
-                loader: 'style-loader!css-loader'
+                test: /(\.css|\.scss)$/, 
+                loader: 'style-loader!css-loader',
+                exclude: /flexboxgrid/
+            },
+            {
+              test: /(\.css|\.scss)$/,
+              loader: 'style!css?modules',
+              include: /flexboxgrid/,
             },
             { 
                 test: /\.png$/, 

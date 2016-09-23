@@ -1,0 +1,24 @@
+@import '../globalstyle';
+
+:local .main {
+  maxWidth: 380;
+  maxHeight: 400;
+  margin: auto;
+}
+
+:local .reset {
+  margin: 20px 0;
+  textAlign: center;
+}
+
+:local .button {
+  margin: 12px 0;
+}
+
+:local .nextbutton {
+  margin-right: 12px;
+}
+
+:local .label {
+  font-weight: bold;
+}

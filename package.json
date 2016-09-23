@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "webpack --progress --colors",
-    "watch": "webpack --progress --colors --watch"
+    "watch": "webpack --progress --colors --watch",
+    "dev": "webpack-dev-server --progress --colors --hot --inline"
   },
   "repository": {
     "type": "git",
@@ -23,11 +24,14 @@
   "homepage": "https://github.com/hammerlab/epidisco-web#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
+    "flexboxgrid": "^6.3.1",
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.1",
     "material-ui": "^0.15.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-flexbox-grid": "^0.10.2",
     "react-tap-event-plugin": "^1.0.0",
     "underscore": "^1.8.3"
   },
@@ -47,6 +51,7 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
   }
 }
