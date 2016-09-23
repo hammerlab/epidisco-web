@@ -88,6 +88,8 @@ ENV/
 # Rope project settings
 .ropeproject
 
-# Bower
-bower_components
-epidiscoweb/static/libs
+# Node
+node_modules
+
+# Bundles
+epidiscoweb/static/*/bundle.*

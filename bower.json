@@ -1,7 +1,0 @@
-{
-  "name": "epidisco-web",
-  "dependencies": {
-    "bootstrap": "~3.3.0",
-    "jQuery": "~3.1.0"
-  }
-}
