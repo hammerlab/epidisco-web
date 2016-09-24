@@ -3,39 +3,28 @@ import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import EpiSection from '../section';
 
-const styles = {
-  block: {
-    maxWidth: 250,
-  },
-  toggle: {
-    marginBottom: 16,
-  },
-};
+import workflow from './style';
 
-export default () => (
+
+export default (props) => {
+  const toggles = props.tools.map(
+    (tool) => (
+      <Toggle
+        key={tool.name}
+        label={tool.name}
+        className={workflow.toggle}
+        defaultToggled={tool.run}
+        disabled={tool.disabled}
+        labelPosition="right"
+      />
+    )
+  );
+
+  return (
    <EpiSection title="Additional tools">
-    <div style={styles.block}>
-      <Toggle
-        label="MuTect-2"
-        style={styles.toggle}
-        labelPosition="right"
-      />
-      <Toggle
-        label="seq2HLA"
-        style={styles.toggle}
-        labelPosition="right"
-      />
-      <Toggle
-        label="SomaticSniper"
-        style={styles.toggle}
-        defaultToggled={true}
-        labelPosition="right"
-      />
-      <Toggle
-        label="VarScan"
-        style={styles.toggle}
-        labelPosition="right"
-      />
+    <div className={workflow.block}>
+      {toggles}
     </div>
    </EpiSection>
-);
+  );
+};

@@ -13,7 +13,7 @@ import EpiFooter from '../footer';
 
 import {EpiDescription, EpiNormal, EpiTumor, EpiRNA, EpiTools} from '../workflow';
 
-const EpiHome = () => (
+const EpiHome = (props) => (
   <Grid fluid className={home.wrap}>
     <Row>
       <Col xs={12}>
@@ -27,11 +27,11 @@ const EpiHome = () => (
         </div>
       </Col>
       <Col xs={8}>
-        <EpiDescription />
-        <EpiNormal />
-        <EpiTumor />
-        <EpiRNA />
-        <EpiTools />
+        <EpiDescription description={props.description} />
+        <EpiNormal files={props.normal.files} />
+        <EpiTumor files={props.tumor.files} />
+        <EpiRNA files={props.rna.files} />
+        <EpiTools tools={props.tools} />
       </Col>
     </Row>
     <Row>

@@ -1,25 +1,82 @@
 import React from 'react';
 
 import Chip from 'material-ui/Chip';
+import TextField from 'material-ui/TextField';
+import LocalOffer from 'material-ui/svg-icons/maps/local-offer';
+
+import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 
 import EpiSection from '../section';
 
-const styles = {
-  chip: {
-    margin: 4,
-  },
-  wrapper: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-};
+import workflow from './style';
 
-export default () => (
-    <EpiSection title="Workflow details">
-      <div style={styles.wrapper}>
-        <Chip key="2" style={styles.chip} >Project: PGV</Chip>
-        <Chip key="3" style={styles.chip}>Sample: Patient 42</Chip>
-        <Chip key="4" style={styles.chip}>Genome: hg19</Chip>
-      </div>
-    </EpiSection>
-);
+export default (props) => {
+  const desc = props.description;
+  const chips = desc.tags.map(
+    (t, i) => (
+      <Chip key={i} className={workflow.chip} style={{margin: 5}}>
+        {t}
+      </Chip>
+    )
+  );
+
+  return (
+      <EpiSection title="Workflow details">
+        <Grid fluid>
+          <Row>
+            <Col xs={12}>
+              <TextField 
+                hintText="Lung Cancer Patient #42"
+                floatingLabelText="Run Name"
+                defaultValue={desc.name}
+                fullWidth={true}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <TextField 
+                hintText="somebody@hammerlab.org"
+                floatingLabelText="E-mail address"
+                defaultValue={desc.email}
+                fullWidth={true}
+              />
+            </Col>
+          </Row>
+          <Row middle="xs" center="xs">
+            <Col xs={1}>
+              <LocalOffer />
+            </Col>
+            <Col xs={11}>
+              <div className={workflow.chips}>
+                {chips}
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <TextField
+                hintText={"HLA-A*01:01\nHLA-A*02:01"}
+                floatingLabelText="HLA Types (one per line - optional)"
+                multiLine={true}
+                fullWidth={true}
+                rows={2}
+                rowsMax={6}
+                defaultValue={desc.hlas.join("\n")}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <TextField 
+                floatingLabelText="Unique identifier"
+                defaultValue={desc.id}
+                fullWidth={true}
+                disabled={true}
+              />
+            </Col>
+          </Row>
+        </Grid>
+      </EpiSection>
+  );
+};
