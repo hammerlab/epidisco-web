@@ -9,6 +9,7 @@ import TextField from 'material-ui/TextField';
 
 import EpiHeader from '../header';
 import EpiStepper from '../stepper';
+import EpiFooter from '../footer';
 
 import {EpiDescription, EpiNormal, EpiTumor, EpiRNA, EpiTools} from '../workflow';
 
@@ -31,6 +32,11 @@ const EpiHome = () => (
         <EpiTumor />
         <EpiRNA />
         <EpiTools />
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={12}>
+        <EpiFooter />
       </Col>
     </Row>
   </Grid>
