@@ -24,16 +24,16 @@ class EpiStepper extends React.Component {
 
     this.state = {
       finished: false,
-      stepIndex: 0,
+      stepIndex: props.stepIndex || 0,
     };
   }
-
+  
   render() {
     const handleNext = () => {
       const {stepIndex} = this.state;
       this.setState({
         stepIndex: stepIndex + 1,
-        finished: stepIndex >= 2,
+        finished: stepIndex >= 3,
       });
     };
 

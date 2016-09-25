@@ -12,34 +12,61 @@ import EpiStepper from '../stepper';
 import EpiFooter from '../footer';
 
 import {EpiDescription, EpiNormal, EpiTumor, EpiRNA, EpiTools} from '../workflow';
+import {EpiStore} from '../../store';
 
-const EpiHome = (props) => (
-  <Grid fluid className={home.wrap}>
-    <Row>
-      <Col xs={12}>
-        <EpiHeader />
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={4}>
-        <div>
-         <EpiStepper />
-        </div>
-      </Col>
-      <Col xs={8}>
-        <EpiDescription description={props.description} />
-        <EpiNormal files={props.normal.files} />
-        <EpiTumor files={props.tumor.files} />
-        <EpiRNA files={props.rna.files} />
-        <EpiTools tools={props.tools} />
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={12}>
-        <EpiFooter />
-      </Col>
-    </Row>
-  </Grid>
-);
+const getStoreState = () => ({ "wf": EpiStore.workflow });
+
+class EpiHome extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = getStoreState();
+    this.updateWorkflow = this.updateWorkflow.bind(this);
+  }
+
+  updateWorkflow() {
+    this.setState(getStoreState());
+  }
+
+  componentDidMount() {
+    EpiStore.addChangeListener(this.updateWorkflow);
+  }
+
+  componentWillUnmount() {  
+    EpiStore.removeChangeListener(this.updateWorkflow);
+  }
+
+  render() {
+    const wf = this.state.wf;
+
+    return (
+      <Grid fluid className={home.wrap}>
+        <Row>
+          <Col xs={12}>
+            <EpiHeader />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={4}>
+            <div>
+             <EpiStepper stepIndex={wf.stepIndex} />
+            </div>
+          </Col>
+          <Col xs={8}>
+            <EpiDescription description={wf.description} />
+            <EpiNormal files={wf.normal.files} />
+            <EpiTumor files={wf.tumor.files} />
+            <EpiRNA files={wf.rna.files} />
+            <EpiTools tools={wf.tools} />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <EpiFooter />
+          </Col>
+        </Row>
+      </Grid>
+    );
+  }  
+}
 
 export default EpiHome;

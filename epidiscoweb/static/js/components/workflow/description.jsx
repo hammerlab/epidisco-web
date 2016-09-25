@@ -28,7 +28,7 @@ export default (props) => {
               <TextField 
                 hintText="Lung Cancer Patient #42"
                 floatingLabelText="Run Name"
-                defaultValue={desc.name}
+                value={desc.name}
                 fullWidth={true}
               />
             </Col>
@@ -38,7 +38,7 @@ export default (props) => {
               <TextField 
                 hintText="somebody@hammerlab.org"
                 floatingLabelText="E-mail address"
-                defaultValue={desc.email}
+                value={desc.email}
                 fullWidth={true}
               />
             </Col>
@@ -62,7 +62,7 @@ export default (props) => {
                 fullWidth={true}
                 rows={2}
                 rowsMax={6}
-                defaultValue={desc.hlas.join("\n")}
+                value={desc.hlas.join("\n")}
               />
             </Col>
           </Row>
@@ -70,7 +70,7 @@ export default (props) => {
             <Col xs={12}>
               <TextField 
                 floatingLabelText="Unique identifier"
-                defaultValue={desc.id}
+                value={desc.id}
                 fullWidth={true}
                 disabled={true}
               />

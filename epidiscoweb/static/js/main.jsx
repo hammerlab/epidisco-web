@@ -9,14 +9,26 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import EpiHome from './components/home';
 
+import EpiHome from './components/home';
+import EpiDispatcher from './dispatcher';
+import {EpiStore, EmptyWorkFlow} from './store';
+
+ReactDOM.render(
+  <MuiThemeProvider>
+    <EpiHome/>
+  </MuiThemeProvider>,
+  document.getElementById('epidiscoweb')
+);
+
+/* Kick-start */
 const mock = {
+  stepIndex: 2,
   description: {
     id: uuid.v1(),
     name: "Epidisco-web test workflow",
     tags: [ "Patient #42", "Genome: hg19", "PGV" ],
-    hlas: [],
+    hlas: ["HLA-A*01:01"],
     email: "arman@hammerlab.org"
   },
   normal: {
@@ -41,16 +53,9 @@ const mock = {
     { name: "VarScan", disabled: false, run: false }
   ]
 };
+/* end of kick-start */
 
-ReactDOM.render(
-  <MuiThemeProvider>
-    <EpiHome
-      description={mock.description}
-      normal={mock.normal}
-      tumor={mock.tumor}
-      rna={mock.rna}
-      tools={mock.tools}
-    />
-  </MuiThemeProvider>,
-  document.getElementById('epidiscoweb')
-);
+EpiDispatcher.dispatch({
+  action: 'new-workflow',
+  workflow: mock
+});
