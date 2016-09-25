@@ -3,8 +3,8 @@
 from factory import PostGenerationMethodCall, Sequence
 from factory.alchemy import SQLAlchemyModelFactory
 
-from epidisco-web.database import db
-from epidisco-web.user.models import User
+from epidiscoweb.database import db
+from epidiscoweb.user.models import User
 
 
 class BaseFactory(SQLAlchemyModelFactory):

@@ -5,7 +5,7 @@ See: http://webtest.readthedocs.org/
 """
 from flask import url_for
 
-from epidisco-web.user.models import User
+from epidiscoweb.user.models import User
 
 from .factories import UserFactory
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Test forms."""
 
-from epidisco-web.public.forms import LoginForm
-from epidisco-web.user.forms import RegisterForm
+from epidiscoweb.public.forms import LoginForm
+from epidiscoweb.user.forms import RegisterForm
 
 
 class TestRegisterForm:

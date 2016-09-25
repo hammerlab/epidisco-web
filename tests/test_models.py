@@ -4,7 +4,7 @@ import datetime as dt
 
 import pytest
 
-from epidisco-web.user.models import Role, User
+from epidiscoweb.user.models import Role, User
 
 from .factories import UserFactory
 

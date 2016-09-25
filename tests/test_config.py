@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Test configs."""
-from epidisco-web.app import create_app
-from epidisco-web.settings import DevConfig, ProdConfig
+from epidiscoweb.app import create_app
+from epidiscoweb.settings import DevConfig, ProdConfig
 
 
 def test_production_config():

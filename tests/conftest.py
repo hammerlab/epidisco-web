@@ -4,9 +4,9 @@
 import pytest
 from webtest import TestApp
 
-from epidisco-web.app import create_app
-from epidisco-web.database import db as _db
-from epidisco-web.settings import TestConfig
+from epidiscoweb.app import create_app
+from epidiscoweb.database import db as _db
+from epidiscoweb.settings import TestConfig
 
 from .factories import UserFactory
 
