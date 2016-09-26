@@ -13,7 +13,7 @@ export default (props) => {
         key={tool.name}
         label={tool.name}
         className={workflow.toggle}
-        defaultToggled={tool.run}
+        toggled={tool.run}
         disabled={tool.disabled}
         labelPosition="right"
       />
