@@ -9,7 +9,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
 import stepper from './style'
-
 /**
  * Vertical steppers are designed for narrow screen sizes. They are ideal for mobile.
  *
@@ -18,6 +17,7 @@ import stepper from './style'
  *
  * <small>(The vertical stepper can also be used without `<StepContent>` to display a basic stepper.)</small>
  */
+
 class EpiStepper extends React.Component {
   constructor(props) {
     super(props);
