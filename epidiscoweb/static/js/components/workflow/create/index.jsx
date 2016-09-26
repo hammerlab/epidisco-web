@@ -2,19 +2,19 @@ import React from 'react';
 
 import {Row, Col} from 'react-flexbox-grid/lib';
 
-import {EpiStepper, createEmptyWorkflow} from 'epiwf/util';
 import EpiStore from 'epi/store';
-import EpiNormal from './normal';
-import EpiDescription from './description';
-import EpiTumor from './tumor';
-import EpiRNA from './rna';
-import EpiTools from './tools';
 import EpiActions from 'epi/actions';
+import {createEmptyWorkflow} from 'epiwf/util';
+import EpiStepper from './stepper';
+import {EpiNormal, EpiDescription, EpiTumor, EpiRNA, EpiTools} from './steps';
 
 const loadEmptyWorklow = (props) => {
   const workflow = createEmptyWorkflow(props.params.workflowId);
   EpiActions.workflowUpdated(workflow);
 };
+
+const steps = [
+];
 
 class EpiCreate extends React.Component {
   constructor(props) {
@@ -48,9 +48,7 @@ class EpiCreate extends React.Component {
     return (
         <Row>
           <Col xs={4}>
-            <div>
-             <EpiStepper stepIndex={wf.stepIndex} />
-            </div>
+            <EpiStepper stepIndex={wf.stepIndex} />
           </Col>
           <Col xs={8}>
             <EpiDescription description={wf.description} />

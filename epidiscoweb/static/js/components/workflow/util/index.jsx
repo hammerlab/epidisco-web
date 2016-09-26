@@ -1,4 +1,3 @@
-import EpiStepper from './stepper';
 import MockWorkflow from 'epi/mock-workflow';
 
 const createEmptyWorkflow = (workflowId) => ({
@@ -19,4 +18,4 @@ const fetchWorkflow = (workflowId, callback) => {
   callback(MockWorkflow);
 };
 
-export {EpiStepper, createEmptyWorkflow, fetchWorkflow};
+export {createEmptyWorkflow, fetchWorkflow};

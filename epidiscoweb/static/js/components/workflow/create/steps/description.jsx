@@ -5,13 +5,27 @@ import TextField from 'material-ui/TextField';
 import LocalOffer from 'material-ui/svg-icons/maps/local-offer';
 
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
 
 import EpiSection from 'epi/components/section';
 
 import style from './style';
 
 
-export default (props) => {
+const EpiDescriptionStep = (props) => (
+  <Step>
+    <StepLabel className={style.label}>Describe your workflow</StepLabel>
+    <StepContent>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent suscipit nisi ac erat egestas lobortis.
+        Curabitur nulla lectus, sollicitudin eu lacus at, tincidunt dapibus lacus.
+      </p>
+    </StepContent>
+  </Step>
+);
+
+const EpiDescription = (props) => {
   const desc = props.description;
   const chips = desc.tags.map(
     (t, i) => (
@@ -81,3 +95,5 @@ export default (props) => {
     </EpiSection>
   );
 };
+
+export {EpiDescription, EpiDescriptionStep};
