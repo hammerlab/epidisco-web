@@ -1,9 +1,6 @@
-import React from 'react';
+import EpiCreate from './create';
+import EpiView from './view';
+import EpiWorkflowUtil from './util';
 
-import EpiNormal from './normal';
-import EpiDescription from './description';
-import EpiTumor from './tumor';
-import EpiRNA from './rna';
-import EpiTools from './tools';
 
-export {EpiDescription, EpiNormal, EpiTumor, EpiRNA, EpiTools};
+export {EpiCreate, EpiView, EpiWorkflowUtil};

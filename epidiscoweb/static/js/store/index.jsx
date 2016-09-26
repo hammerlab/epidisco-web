@@ -1,21 +1,18 @@
 import EventEmitter from 'events';
 
-import EpiDispatcher from '../dispatcher';
+import EpiDispatcher from 'epi/dispatcher';
+import {createEmptyWorkflow} from 'epiwf/util';
 
 const CHANGE_EVENT = 'change';
-const EmptyWorkFlow = {
-  stepIndex: 0,
-  description: { id: "", name: "", tags: [], hlas: [], email: "" },
-  normal: { files: [] },
-  tumor: { files: [] },
-  rna: { files: [] },
-  tools: []
-};
 
 class EpiStore extends EventEmitter {
   constructor() {
     super();
-    this.workflow = EmptyWorkFlow;
+    this.workflow = createEmptyWorkflow();
+  }
+
+  getWorkflowState() {
+    return { "workflow": this.workflow };
   }
 
   emitChange() {
@@ -47,4 +44,4 @@ epiStore.dispatchToken = EpiDispatcher.register(
   }
 );
 
-export {epiStore as EpiStore, EmptyWorkFlow};
+export default epiStore;

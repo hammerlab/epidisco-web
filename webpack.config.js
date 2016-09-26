@@ -1,16 +1,27 @@
+var path = require('path');
+
+var epiPath = path.resolve(__dirname, 'epidiscoweb/static/js/');
+var resolveEpiPath = function(subdir) {
+  return path.resolve(epiPath, subdir);
+};
+
 module.exports = {
-    entry: "./epidiscoweb/static/js/main.jsx",
+    entry: resolveEpiPath('main.jsx'),
     output: {
-        path: "./epidiscoweb/static/js/dist/",
-        publicPath: "/static/js/dist/",
-        filename: "bundle.js"
+        path: resolveEpiPath('dist/'),
+        publicPath: '/static/js/dist/',
+        filename: 'bundle.js'
     },
     resolve: {
-     extensions: ['', '.js', '.jsx', '.scss']
+      alias: {
+        'epi': epiPath,
+        'epiwf': resolveEpiPath('components/workflow/')
+      },
+      extensions: ['', '.js', '.jsx', '.scss']
     },
     module: {
         loaders: [
-            { 
+            {
                 test: /(\.js|\.jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel',
@@ -18,8 +29,8 @@ module.exports = {
                     presets: ['es2015', 'react']
                 }
             },
-            { 
-                test: /(\.css|\.scss)$/, 
+            {
+                test: /(\.css|\.scss)$/,
                 loader: 'style-loader!css-loader',
                 exclude: /flexboxgrid/
             },
@@ -28,28 +39,28 @@ module.exports = {
               loader: 'style!css?modules',
               include: /flexboxgrid/,
             },
-            { 
-                test: /\.png$/, 
-                loader: "url-loader?limit=100000" 
-            },
-            { 
-                test: /\.jpg$/, 
-                loader: "file-loader" 
+            {
+                test: /\.png$/,
+                loader: 'url-loader?limit=100000'
             },
             {
-                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
+                test: /\.jpg$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url?limit=10000&mimetype=application/font-woff'
             },
             {
-                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url?limit=10000&mimetype=application/octet-stream'
             },
             {
-                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file'
             },
             {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url?limit=10000&mimetype=image/svg+xml'
             },
             {

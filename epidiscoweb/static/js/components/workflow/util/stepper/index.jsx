@@ -8,15 +8,7 @@ import {
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
-import stepper from './style'
-/**
- * Vertical steppers are designed for narrow screen sizes. They are ideal for mobile.
- *
- * To use the vertical stepper with the contained content as seen in spec examples,
- * you must use the `<StepContent>` component inside the `<Step>`.
- *
- * <small>(The vertical stepper can also be used without `<StepContent>` to display a basic stepper.)</small>
- */
+import style from './style'
 
 class EpiStepper extends React.Component {
   constructor(props) {
@@ -27,7 +19,7 @@ class EpiStepper extends React.Component {
       stepIndex: props.stepIndex || 0,
     };
   }
-  
+
   render() {
     const handleNext = () => {
       const {stepIndex} = this.state;
@@ -48,14 +40,14 @@ class EpiStepper extends React.Component {
       const stepIndex = this.state.stepIndex;
 
       return (
-        <div className={stepper.button}>
+        <div className={style.button}>
           <RaisedButton
             label={stepIndex === 4 ? 'Finish' : 'Next'}
             disableTouchRipple={true}
             disableFocusRipple={true}
             primary={true}
             onTouchTap={handleNext}
-            className={stepper.nextbutton}
+            className={style.nextbutton}
           />
           {step > 0 && (
             <FlatButton
@@ -71,44 +63,44 @@ class EpiStepper extends React.Component {
     }
 
      return (
-       <div className={stepper.main}>
+       <div className={style.main}>
           <Stepper activeStep={this.state.stepIndex} orientation="vertical">
             <Step>
-              <StepLabel className={stepper.label}>Describe your workflow</StepLabel>
+              <StepLabel className={style.label}>Describe your workflow</StepLabel>
               <StepContent>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Praesent suscipit nisi ac erat egestas lobortis. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Praesent suscipit nisi ac erat egestas lobortis.
                   Curabitur nulla lectus, sollicitudin eu lacus at, tincidunt dapibus lacus.
                 </p>
                 {renderStepActions(0)}
               </StepContent>
             </Step>
             <Step>
-              <StepLabel className={stepper.label}>Configure: Normal</StepLabel>
+              <StepLabel className={style.label}>Configure: Normal</StepLabel>
               <StepContent>
                 <p>
                   Nam ligula nibh, laoreet vel dignissim in, aliquam in felis.
                   Suspendisse vitae libero a nisi aliquam egestas vel et justo.
-                  Aenean nec libero ligula. Nam ut aliquet tellus, ut lobortis dui. 
+                  Aenean nec libero ligula. Nam ut aliquet tellus, ut lobortis dui.
                 </p>
                 {renderStepActions(1)}
               </StepContent>
             </Step>
             <Step>
-              <StepLabel className={stepper.label}>Configure: Tumor</StepLabel>
+              <StepLabel className={style.label}>Configure: Tumor</StepLabel>
               <StepContent>
                 <p>
                   Praesent sem risus, fermentum et euismod sed, sollicitudin a dolor.
                   Sed non pulvinar nisi, ut mattis lectus.
                   Duis in tincidunt mi.
-                  In finibus suscipit volutpat. 
+                  In finibus suscipit volutpat.
                 </p>
                 {renderStepActions(2)}
               </StepContent>
             </Step>
             <Step>
-              <StepLabel className={stepper.label}>Configure: RNA (Optional)</StepLabel>
+              <StepLabel className={style.label}>Configure: RNA (Optional)</StepLabel>
               <StepContent>
                 <p>
                   Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -119,7 +111,7 @@ class EpiStepper extends React.Component {
               </StepContent>
             </Step>
             <Step>
-              <StepLabel className={stepper.label}>Configure: Additional tools</StepLabel>
+              <StepLabel className={style.label}>Configure: Additional tools</StepLabel>
               <StepContent>
                 <p>
                   Nullam odio metus, tincidunt a volutpat id, tristique ac felis.
@@ -132,7 +124,7 @@ class EpiStepper extends React.Component {
 
           </Stepper>
           {this.finished && (
-            <p className={stepper.reset}>
+            <p className={style.reset}>
               <a
                 href="#"
                 onClick={(event) => {

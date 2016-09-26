@@ -1,14 +1,10 @@
-@import '../globalstyle';
-
 :local .main {
-  maxWidth: 380;
-  maxHeight: 400;
   margin: auto;
 }
 
 :local .reset {
   margin: 20px 0;
-  textAlign: center;
+  text-align: center;
 }
 
 :local .button {

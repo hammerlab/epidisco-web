@@ -10,11 +10,7 @@ import CloudDownload from 'material-ui/svg-icons/file/cloud-download';
 
 import footer from './style';
 
-/**
- * A simple example of `BottomNavigation`, with three labels and icons
- * provided. The selected `BottomNavigationItem` is determined by application
- * state (for instance, by the URL).
- */
+
 class EpiFooter extends Component {
   constructor(props) {
     super(props);

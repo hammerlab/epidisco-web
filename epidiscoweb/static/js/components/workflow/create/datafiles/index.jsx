@@ -9,7 +9,7 @@ import TextField from 'material-ui/TextField';
 
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 
-import workflow from './style';
+import style from './style';
 
 const Spacer = () => (
   <Row>
@@ -25,7 +25,7 @@ const DataFile = (props) => (
     <Col xs={3}>
       <SelectField
         value={props.dataFileType || "SE"}
-        className={workflow.datafiletype}
+        className={style.datafiletype}
         autoWidth={true}
       >
         <MenuItem value={"SE"} primaryText="SE" />
@@ -33,18 +33,18 @@ const DataFile = (props) => (
       </SelectField>
     </Col>
     <Col xs={8}>
-      <TextField 
+      <TextField
         hintText={props.hintText}
         floatingLabelText={props.floatingLabelText}
-        className={workflow.datafiletext}
+        className={style.datafiletext}
         defaultValue={props.dataFileURI}
         fullWidth={true}
       />
     </Col>
     <Col xs={1}>
       <FloatingActionButton mini={true}>
-        {props.dataFileURI && props.dataFileURI.length > 0 
-          ? <ContentRemove /> 
+        {props.dataFileURI && props.dataFileURI.length > 0
+          ? <ContentRemove />
           : <ContentAdd />}
       </FloatingActionButton>
     </Col>

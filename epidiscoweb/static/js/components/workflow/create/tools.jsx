@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Toggle from 'material-ui/Toggle';
-import EpiSection from '../section';
+import EpiSection from 'epi/components/section';
 
-import workflow from './style';
+import style from './style';
 
 
 export default (props) => {
@@ -12,7 +12,7 @@ export default (props) => {
       <Toggle
         key={tool.name}
         label={tool.name}
-        className={workflow.toggle}
+        className={style.toggle}
         toggled={tool.run}
         disabled={tool.disabled}
         labelPosition="right"
@@ -22,7 +22,7 @@ export default (props) => {
 
   return (
    <EpiSection title="Additional tools">
-    <div className={workflow.block}>
+    <div className={style.block}>
       {toggles}
     </div>
    </EpiSection>

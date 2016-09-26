@@ -1,0 +1,16 @@
+:local .chips {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:local .chip {
+  margin-right: 4px;
+}
+
+:local .block {
+  max-width: 250px;
+}
+
+:local .toggle {
+  margin-bottom: 16px;
+}

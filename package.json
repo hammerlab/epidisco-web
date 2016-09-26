@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "webpack --progress --colors --optimize-minimize",
-    "watch": "webpack --progress --colors --watch",
+    "watch": "webpack --progress --colors --watch --display-error-details",
     "dev": "webpack-dev-server --progress --colors --hot --inline --devtool source-map"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-flexbox-grid": "^0.10.2",
+    "react-router": "^2.8.1",
     "react-tap-event-plugin": "^1.0.0",
     "uuid": "^2.0.3"
   },
@@ -52,7 +53,6 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.1"
+    "webpack": "^1.13.2"
   }
 }
