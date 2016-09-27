@@ -17,7 +17,8 @@ const createOrder = [
   {step: Steps.EpiNormalStep, section: Steps.EpiNormal, key: 'normal'},
   {step: Steps.EpiTumorStep, section: Steps.EpiTumor, key: 'tumor'},
   {step: Steps.EpiRNAStep, section: Steps.EpiRNA, key: 'rna'},
-  {step: Steps.EpiToolsStep, section: Steps.EpiTools, key: 'tools'}
+  {step: Steps.EpiToolsStep, section: Steps.EpiTools, key: 'tools'},
+  {step: Steps.EpiSubmitStep, section: Steps.EpiSubmit, key: 'submit'}
 ];
 
 const loadEmptyWorklow = (props) => {
@@ -59,7 +60,11 @@ class EpiCreate extends React.Component {
 
       return (
         <div className={className} key={key}>
-          <Epicomponent workflow={wf} classNames={className} />
+          <Epicomponent
+            workflow={wf}
+            classNames={className}
+            open={wf.stepIndex == index}
+          />
         </div>
       );
     });

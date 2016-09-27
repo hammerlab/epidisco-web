@@ -37,7 +37,6 @@ const EpiTools = (props) => {
     (tool) => {
       let toggle = (
         <Toggle
-          key={tool.name}
           toggled={tool.run}
           disabled={tool.disabled}
         />
@@ -49,6 +48,7 @@ const EpiTools = (props) => {
 
       return (
         <ListItem
+          key={tool.name}
           primaryText={tool.name}
           leftIcon={icon}
           rightToggle={toggle}
@@ -107,7 +107,7 @@ const EpiTools = (props) => {
            <ListItem leftIcon={<ActionInfo />}>
             <TextField
               hintText="regions.bed"
-              floatingTitle="BED file URL"
+              floatingLabelText="BED file URL"
               value={props.workflow.description.regions}
               fullWidth={true}
             />

@@ -3,6 +3,7 @@ import uuid from 'uuid';
 /* Kick-start */
 const MockWorkflow = {
   stepIndex: 2,
+  submitted: false,
   description: {
     id: uuid.v1(),
     name: "Epidisco-web test workflow",

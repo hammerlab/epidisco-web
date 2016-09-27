@@ -12,6 +12,12 @@ const EpiActions = {
       action: "new-step",
       stepIndex
     });
+  },
+  workflowSubmitted(submitted) {
+    EpiDispatcher.dispatch({
+      action: "submit-workflow",
+      submitted
+    });
   }
 };
 

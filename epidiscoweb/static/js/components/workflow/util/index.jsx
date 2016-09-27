@@ -2,6 +2,7 @@ import MockWorkflow from 'epi/mock-workflow';
 
 const createEmptyWorkflow = (workflowId) => ({
   stepIndex: 0,
+  submitted: false,
   description: { id: workflowId, name: "", tags: [], hlas: [], email: "" },
   normal: { files: [] },
   tumor: { files: [] },
