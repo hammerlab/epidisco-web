@@ -30,6 +30,7 @@ const EpiTumor = (props) => (
     files={props.workflow.tumor.files}
     floatingLabelText="Tumor data file"
     hintText="tumor.fastq | tumor.bam"
+    part="tumor"
   />
  </EpiSection>
 );

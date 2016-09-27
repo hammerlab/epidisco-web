@@ -5,6 +5,7 @@ import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 import TextField from 'material-ui/TextField';
 
 import EpiSection from '../section';
+import EpiActions from 'epi/actions';
 
 import style from './style';
 
@@ -37,6 +38,7 @@ const EpiDescription = (props) => {
               floatingLabelText="Descriptive Name"
               value={desc.name}
               fullWidth={true}
+              onChange={(e, v) => EpiActions.nameChanged(v)}
             />
           </Col>
         </Row>
@@ -47,11 +49,13 @@ const EpiDescription = (props) => {
               floatingLabelText="E-mail address"
               value={desc.email}
               fullWidth={true}
+              onChange={(e, v) => EpiActions.emailChanged(v)}
             />
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
+            <br />
             <TextField
               floatingLabelText="Unique identifier"
               value={desc.id}

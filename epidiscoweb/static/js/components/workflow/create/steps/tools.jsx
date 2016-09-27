@@ -11,6 +11,7 @@ import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
 import EpiSection from '../section';
+import EpiActions from 'epi/actions';
 
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 
@@ -39,6 +40,9 @@ const EpiTools = (props) => {
         <Toggle
           toggled={tool.run}
           disabled={tool.disabled}
+          onToggle={() => {
+            EpiActions.toolToggled(tool, !tool.run);
+          }}
         />
       );
 
@@ -68,6 +72,7 @@ const EpiTools = (props) => {
            <Subheader>Reference Genome</Subheader>
            <ListItem>
              <SelectField
+                onChange={(e, k, v) => EpiActions.genomeChanged(v)}
                 value={props.workflow.description.genome || "b37"}
               >
                 {["b37", "b38", "hg18", "hg19"].map(
@@ -88,6 +93,7 @@ const EpiTools = (props) => {
                 fullWidth={true}
                 rows={2}
                 rowsMax={10}
+                onChange={(e, v) => EpiActions.hlasChanged(v)}
                 value={props.workflow.description.hlas.join("\n")}
               />
            </ListItem>
@@ -97,8 +103,8 @@ const EpiTools = (props) => {
              rightToggle={
                <Toggle
                  key="seq2HLA"
-                 toggled={false}
-                 disabled={false}
+                 toggled={props.workflow.description.seq2hla}
+                 onToggle={() => EpiActions.seq2hlaChanged(!props.workflow.description.seq2hla)}
                />
              }
            />
@@ -106,6 +112,7 @@ const EpiTools = (props) => {
            <Subheader>Regions of interest</Subheader>
            <ListItem leftIcon={<ActionInfo />}>
             <TextField
+              onChange={(e, v) => EpiActions.bedFileChanged(v)}
               hintText="regions.bed"
               floatingLabelText="BED file URL"
               value={props.workflow.description.regions}

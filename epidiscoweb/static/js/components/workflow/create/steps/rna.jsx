@@ -29,6 +29,7 @@ const EpiRNA = (props) => (
     files={props.workflow.rna.files}
     floatingLabelText="RNA data file"
     hintText="rna.fastq | rna.bam"
+    part="rna"
   />
  </EpiSection>
 );

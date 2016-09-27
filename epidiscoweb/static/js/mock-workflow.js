@@ -9,6 +9,8 @@ const MockWorkflow = {
     name: "Epidisco-web test workflow",
     tags: [ "Patient #42", "Genome: hg19", "PGV" ],
     hlas: ["HLA-A*01:01"],
+    seq2hla: false,
+    genome: "b37",
     email: "arman@hammerlab.org"
   },
   normal: {
@@ -28,7 +30,6 @@ const MockWorkflow = {
   },
   tools: [
     { name: "MuTect-2", disabled: false, run: false },
-    { name: "seq2HLA", disabled: false, run: true },
     { name: "SomaticSniper", disabled: false, run: true },
     { name: "VarScan", disabled: false, run: false }
   ]

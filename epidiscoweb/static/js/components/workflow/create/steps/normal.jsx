@@ -29,6 +29,7 @@ const EpiNormal = (props) => (
       files={props.workflow.normal.files}
       floatingLabelText="Normal data file"
       hintText="normal.fastq | normal.bam"
+      part="normal"
     />
   </EpiSection>
 );
