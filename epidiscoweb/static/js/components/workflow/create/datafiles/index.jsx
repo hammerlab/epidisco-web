@@ -97,12 +97,12 @@ class DataFile extends React.Component {
             value={fileType}
             className={style.datafiletype}
             floatingLabelText="Sequence type"
-            style={{width: 120}}
+            style={{width: 120, fontSize: 14}}
             disabled={disabled}
             onChange={(e, k, v) => this.setState({fileType: v})}
           >
-            <MenuItem value={"SE"} primaryText="Single" />
-            <MenuItem value={"PE"} primaryText="Paired" />
+            <MenuItem value={"SE"} primaryText="Single-end" />
+            <MenuItem value={"PE"} primaryText="Pair-end" />
           </SelectField>
         </Col>
         <Col xs={8}>
