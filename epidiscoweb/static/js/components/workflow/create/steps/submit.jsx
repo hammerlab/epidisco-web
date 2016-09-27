@@ -95,7 +95,7 @@ class EpiSubmit extends React.Component {
           </EpiSection>
         </div>
         <Dialog
-          title="Almost there..."
+          title="Confirm submission"
           actions={actions}
           modal={false}
           open={this.state.open}

@@ -17,9 +17,9 @@ const EpiDescriptionStep = (props) => (
     </StepButton>
     <StepContent>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Praesent suscipit nisi ac erat egestas lobortis.
-        Curabitur nulla lectus, sollicitudin eu lacus at, tincidunt dapibus lacus.
+        These configurations will be used to set your workflow up
+        and notify you when the final results are available for
+        review.
       </p>
     </StepContent>
   </Step>

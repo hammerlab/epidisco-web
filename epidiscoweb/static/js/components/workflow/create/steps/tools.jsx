@@ -24,9 +24,16 @@ const EpiToolsStep = (props) => (
     </StepButton>
     <StepContent>
       <p>
-        Nullam odio metus, tincidunt a volutpat id, tristique ac felis.
-        Fusce imperdiet fermentum diam ac maximus.
-        Pellentesque vulputate ligula at sem fringilla euismod.
+        Our pipeline, by default, utilizes
+        GATK, MuTect and Strelka for variant calling
+        against the b37 genome contig;
+        but you can optionally get results from other callers
+        and filter variants for particular genomic regions.
+
+        If you have provided RNA data,
+        our pipeline can infer MHC alleles via seq2HLA;
+        but you can always override this by providing
+        your own MHC Alleles as a list.
       </p>
     </StepContent>
   </Step>

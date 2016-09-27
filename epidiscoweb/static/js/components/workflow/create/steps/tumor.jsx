@@ -11,14 +11,13 @@ import style from './style';
 const EpiTumorStep = (props) => (
   <Step key={props.key}>
     <StepButton onClick={props.onClick} completed={props.completed}>
-      Configure: Tumor
+      Configure: Tumor Sample
     </StepButton>
     <StepContent>
       <p>
-        Praesent sem risus, fermentum et euismod sed, sollicitudin a dolor.
-        Sed non pulvinar nisi, ut mattis lectus.
-        Duis in tincidunt mi.
-        In finibus suscipit volutpat.
+        We recommend use of data from (at least) 300X whole-exome sequencing
+        of the fresh-frozen tumor sample with 125bp reads using a library prep
+        based on sonication (and not tagmentation).
       </p>
     </StepContent>
   </Step>

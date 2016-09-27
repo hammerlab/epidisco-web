@@ -11,13 +11,14 @@ import style from './style';
 const EpiRNAStep = (props) => (
   <Step key={props.key}>
     <StepButton onClick={props.onClick} completed={props.completed}>
-      Configure: RNA (Optional)
+      Configure: Tumor RNA (Optional)
     </StepButton>
     <StepContent>
       <p>
-        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        Vestibulum vel metus eu sapien malesuada ultricies non et tortor.
-        Nam porta pulvinar finibus.
+        We recommend use of RNA-Seq data
+        with at least 100M reads.
+        Sample preparation featuring poly-A capture is preferred
+        over ribosomal depletion.
       </p>
     </StepContent>
   </Step>

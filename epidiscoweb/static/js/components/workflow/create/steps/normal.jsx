@@ -11,13 +11,13 @@ import style from './style';
 const EpiNormalStep = (props) => (
   <Step key={props.key}>
     <StepButton onClick={props.onClick} completed={props.completed}>
-      Configure: Normal
+      Configure: Normal Sample
     </StepButton>
     <StepContent>
       <p>
-        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        Vestibulum vel metus eu sapien malesuada ultricies non et tortor.
-        Nam porta pulvinar finibus.
+        We recommend use of data from (at least) 150X whole-exome sequencing
+        of the fresh-frozen normal sample with 125bp reads using a library prep
+        based on sonication (and not tagmentation).
       </p>
     </StepContent>
   </Step>
