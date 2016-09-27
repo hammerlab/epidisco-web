@@ -107,7 +107,7 @@ const EpiTools = (props) => {
                 rows={2}
                 rowsMax={10}
                 onChange={(e, v) => EpiActions.hlasChanged(v)}
-                value={props.workflow.description.hlas.join("\n")}
+                defaultValue={props.workflow.description.hlas.join("\n")}
               />
            </ListItem>
            <ListItem
@@ -130,7 +130,7 @@ const EpiTools = (props) => {
               onChange={(e, v) => EpiActions.bedFileChanged(v)}
               hintText="regions.bed"
               floatingLabelText="BED file URL"
-              value={props.workflow.description.regions}
+              defaultValue={props.workflow.description.regions}
               fullWidth={true}
             />
            </ListItem>

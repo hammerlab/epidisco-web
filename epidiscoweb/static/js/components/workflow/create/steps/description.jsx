@@ -36,7 +36,7 @@ const EpiDescription = (props) => {
             <TextField
               hintText="Lung Cancer Patient #42"
               floatingLabelText="Descriptive Name"
-              value={desc.name}
+              defaultValue={desc.name}
               fullWidth={true}
               onChange={(e, v) => EpiActions.nameChanged(v)}
             />
@@ -47,7 +47,7 @@ const EpiDescription = (props) => {
             <TextField
               hintText="somebody@hammerlab.org"
               floatingLabelText="E-mail address"
-              value={desc.email}
+              defaultValue={desc.email}
               fullWidth={true}
               onChange={(e, v) => EpiActions.emailChanged(v)}
             />
