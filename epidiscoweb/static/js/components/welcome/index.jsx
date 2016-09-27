@@ -18,28 +18,13 @@ const EpiWelcome = (props) => (
   <Row>
     <Col xs={12}>
       <Card>
+        <CardHeader
+          title="Personalized cancer epitope discovery and peptide vaccine prediction pipeline"
+          titleStyle={{fontSize: 32, fontWeight: 'bold', textAlign: 'center'}}
+        />
         <CardMedia>
           <img src="static/img/pipeline.png" />
         </CardMedia>
-        <CardTitle
-          title="Epidisco"
-          subtitle="Personalized cancer epitope discovery and peptide vaccine prediction pipeline"
-        />
-        <CardText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Etiam eget tempor leo.
-          Morbi ultrices, ligula tempor tincidunt congue,
-          purus erat ultrices turpis, in accumsan enim nunc in lacus.
-          Integer enim tortor, iaculis id volutpat sit amet, posuere vel risus.
-          Nulla eleifend arcu et arcu luctus, sed consequat erat volutpat.
-          Nulla molestie, lectus sit amet faucibus convallis,
-          nunc tellus porttitor tellus, a dignissim urna ante eu metus.
-          Quisque ut convallis massa. Cras congue est vitae suscipit placerat.
-          Fusce maximus hendrerit rutrum.
-          In interdum nunc odio, nec efficitur turpis semper in.
-          Nam rhoncus erat eget ipsum convallis facilisis.
-          Maecenas sollicitudin scelerisque pulvinar.
-        </CardText>
         <CardActions>
           <Link to="/new">
             <RaisedButton
