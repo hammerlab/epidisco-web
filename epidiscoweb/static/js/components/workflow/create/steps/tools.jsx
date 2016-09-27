@@ -8,8 +8,6 @@ import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
-import ActionInfo from 'material-ui/svg-icons/action/info';
-import Gavel from 'material-ui/svg-icons/action/gavel';
 
 import EpiSection from '../section';
 import EpiActions from 'epi/actions';
@@ -47,15 +45,10 @@ const EpiTools = (props) => {
         />
       );
 
-      let icon = (
-        <Gavel />
-      );
-
       return (
         <ListItem
           key={tool.name}
           primaryText={tool.name}
-          leftIcon={icon}
           rightToggle={toggle}
         />
       );
@@ -112,7 +105,6 @@ const EpiTools = (props) => {
            </ListItem>
            <ListItem
              primaryText="or use seq2HLA"
-             leftIcon={<ActionInfo />}
              rightToggle={
                <Toggle
                  key="seq2HLA"
@@ -126,7 +118,7 @@ const EpiTools = (props) => {
            />
            <Divider />
            <Subheader>Regions of interest</Subheader>
-           <ListItem leftIcon={<ActionInfo />}>
+           <ListItem>
             <TextField
               onChange={(e, v) => EpiActions.bedFileChanged(v)}
               hintText="regions.bed"
