@@ -53,17 +53,6 @@ const EpiDescription = (props) => {
             />
           </Col>
         </Row>
-        <Row>
-          <Col xs={12}>
-            <br />
-            <TextField
-              floatingLabelText="Unique identifier"
-              value={desc.id}
-              fullWidth={true}
-              disabled={true}
-            />
-          </Col>
-        </Row>
       </Grid>
     </EpiSection>
   );
