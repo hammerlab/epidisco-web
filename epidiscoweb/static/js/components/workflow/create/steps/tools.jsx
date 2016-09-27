@@ -9,6 +9,7 @@ import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
+import Gavel from 'material-ui/svg-icons/action/gavel';
 
 import EpiSection from '../section';
 import EpiActions from 'epi/actions';
@@ -47,7 +48,7 @@ const EpiTools = (props) => {
       );
 
       let icon = (
-        <ActionInfo />
+        <Gavel />
       );
 
       return (
@@ -66,7 +67,7 @@ const EpiTools = (props) => {
      <Row>
        <Col xs={6}>
          <List className={style.toolscol}>
-           <Subheader>Variant callers</Subheader>
+           <Subheader>Additional variant callers</Subheader>
            {variantCallers}
            <Divider />
            <Subheader>Reference Genome</Subheader>
@@ -76,19 +77,31 @@ const EpiTools = (props) => {
                 value={props.workflow.description.genome || "b37"}
               >
                 {["b37", "b38", "hg18", "hg19"].map(
-                  (g) => <MenuItem key={g} value={g} primaryText={g} />
+                  (g) => (
+                    <MenuItem
+                      key={g}
+                      value={g}
+                      primaryText={`Human: ${g}`}
+                    />
+                  )
                 )}
+                <MenuItem
+                  key="mm10"
+                  value="mm10"
+                  primaryText="Mouse: mm10"
+                  disabled={true}
+                />
               </SelectField>
            </ListItem>
          </List>
        </Col>
        <Col xs={6}>
          <List className={style.toolscol}>
-           <Subheader>MHC Alleles</Subheader>
-           <ListItem>
+           <Subheader>Neoepitope prediction</Subheader>
+             <ListItem>
               <TextField
                 hintText={"HLA-A*01:01\nHLA-A*02:01"}
-                floatingLabelText="HLA Types (one per line - optional)"
+                floatingLabelText="MHC Alleles (one per line)"
                 multiLine={true}
                 fullWidth={true}
                 rows={2}
@@ -98,13 +111,16 @@ const EpiTools = (props) => {
               />
            </ListItem>
            <ListItem
-             primaryText="infer via seq2HLA"
+             primaryText="or use seq2HLA"
              leftIcon={<ActionInfo />}
              rightToggle={
                <Toggle
                  key="seq2HLA"
                  toggled={props.workflow.description.seq2hla}
-                 onToggle={() => EpiActions.seq2hlaChanged(!props.workflow.description.seq2hla)}
+                 onToggle={() => {
+                   let run = !props.workflow.description.seq2hla;
+                   EpiActions.seq2hlaChanged(run);
+                 }}
                />
              }
            />

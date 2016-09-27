@@ -80,7 +80,7 @@ class EpiCreate extends React.Component {
           <Col xs={4}>
             <EpiStepper stepIndex={wf.stepIndex}>{steps}</EpiStepper>
           </Col>
-          <Col xs={8}>
+          <Col xs={8} style={{marginTop: 15}}>
             {sections}
             <Steps.EpiNavigation
               stepIndex={wf.stepIndex}

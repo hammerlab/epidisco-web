@@ -3,9 +3,11 @@ import {Link} from 'react-router';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
 import Done from 'material-ui/svg-icons/action/done';
 import Assessment from 'material-ui/svg-icons/action/assessment';
+import LinkIcon from 'material-ui/svg-icons/content/link';
 import {Step, StepButton} from 'material-ui/Stepper';
 
 import EpiSection from '../section';
@@ -80,16 +82,15 @@ class EpiSubmit extends React.Component {
                 we will be emailing you a summary report
                 with all the analysis results in it.
               </p>
-              <p>
-                <Link to={`view/${this.props.workflow.description.id}`}>
-                  <FlatButton
-                    label="Check status"
-                    primary={true}
-                    keyboardFocused={true}
-                    icon={<Done />}
-                  />
-                </Link>
-              </p>
+              <Link to={`view/${this.props.workflow.description.id}`}>
+                <RaisedButton
+                  label="Check status"
+                  primary={true}
+                  keyboardFocused={true}
+                  icon={<LinkIcon />}
+                  fullWidth={true}
+                />
+              </Link>
             </div>
           </EpiSection>
         </div>

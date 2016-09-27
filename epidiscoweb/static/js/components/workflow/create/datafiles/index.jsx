@@ -23,16 +23,19 @@ const Spacer = () => (
 );
 
 const DataFile = (props) => {
-  let {part, fileIndex, file} = props;
-  let buttonAction
-  let ButtonIcon;
+  let {part, fileIndex, file, removable} = props;
+  let buttonAction, ButtonIcon, disabled, secondary;
 
-  if(props.removable) {
+  if(removable) {
     buttonAction = (e) => EpiActions.fileRemoved(part, fileIndex);
     ButtonIcon = ContentRemove;
+    disabled = true;
+    secondary = true;
   } else {
-    buttonAction = (e) => { EpiActions.fileAdded(part, file); }
+    buttonAction = (e) => { EpiActions.fileAdded(part, file); };
     ButtonIcon = ContentAdd;
+    disabled = false;
+    secondary = false;
   }
 
   return (
@@ -43,6 +46,7 @@ const DataFile = (props) => {
           className={style.datafiletype}
           floatingLabelText="Sequence type"
           style={{width: 120}}
+          disabled={disabled}
           onChange={(e, k, v) => {file.filetype = v;}}
         >
           <MenuItem value={"SE"} primaryText="Single" />
@@ -56,11 +60,16 @@ const DataFile = (props) => {
           className={style.datafiletext}
           defaultValue={file.uri}
           fullWidth={true}
+          disabled={disabled}
           onChange={(e, v) => {file.uri = v;}}
         />
       </Col>
       <Col xs={1}>
-        <FloatingActionButton mini={true} onTouchTap={buttonAction}>
+        <FloatingActionButton
+          mini={true}
+          onTouchTap={buttonAction}
+          secondary={secondary}
+        >
           <ButtonIcon />
         </FloatingActionButton>
       </Col>
@@ -75,7 +84,7 @@ const DataFiles = (props) => {
         removable={true}
         hintText={props.hintText}
         floatingLabelText={props.floatingLabelText}
-        key={file.uri}
+        key="newfile"
         file={file}
         fileIndex={idx}
         part={props.part}
@@ -91,6 +100,7 @@ const DataFiles = (props) => {
         hintText={props.hintText}
         floatingLabelText={props.floatingLabelText}
         part={props.part}
+        removable={false}
       />
     </Grid>
   );
