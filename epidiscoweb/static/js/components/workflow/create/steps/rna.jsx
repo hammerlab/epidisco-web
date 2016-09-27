@@ -28,8 +28,8 @@ const EpiRNA = (props) => (
  <EpiSection title="RNA Sequencing Data From Tissue Sample">
   <DataFiles
     files={props.workflow.rna.files}
-    floatingLabelText="RNA data file"
-    hintText="rna.fastq | rna.bam"
+    floatingLabelText="URL to the tumor RNA data file"
+    hintText="e.g. http://url/to/rna.fastq"
     part="rna"
   />
  </EpiSection>

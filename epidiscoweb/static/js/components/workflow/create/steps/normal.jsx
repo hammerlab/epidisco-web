@@ -27,8 +27,8 @@ const EpiNormal = (props) => (
   <EpiSection title="Sequencing Data From Normal Tissue Sample">
     <DataFiles
       files={props.workflow.normal.files}
-      floatingLabelText="Normal data file"
-      hintText="normal.fastq | normal.bam"
+      floatingLabelText="URL to the normal data file"
+      hintText="e.g. http://url/to/normal.fastq"
       part="normal"
     />
   </EpiSection>

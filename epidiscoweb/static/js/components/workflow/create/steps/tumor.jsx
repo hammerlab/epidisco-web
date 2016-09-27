@@ -27,8 +27,8 @@ const EpiTumor = (props) => (
  <EpiSection title="Sequencing Data From Tumor Tissue Sample">
   <DataFiles
     files={props.workflow.tumor.files}
-    floatingLabelText="Tumor data file"
-    hintText="tumor.fastq | tumor.bam"
+    floatingLabelText="URL to the tumor data file"
+    hintText="e.g. http://url/to/tumor.fastq"
     part="tumor"
   />
  </EpiSection>
