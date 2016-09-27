@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
+import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
 import EpiSection from 'epi/components/section';
 import {DataFiles} from '../datafiles';
@@ -10,7 +10,7 @@ import style from './style';
 
 const EpiRNAStep = (props) => (
   <Step>
-    <StepLabel className={style.label}>Configure: RNA (Optional)</StepLabel>
+    <StepButton>Configure: RNA (Optional)</StepButton>
     <StepContent>
       <p>
         Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.

@@ -40,6 +40,11 @@ epiStore.dispatchToken = EpiDispatcher.register(
         epiStore.workflow = update.workflow;
         epiStore.emitChange();
         break;
+      case 'new-step':
+        console.log("step index: " + update.stepIndex);
+        epiStore.workflow.stepIndex = update.stepIndex;
+        epiStore.emitChange();
+        break;
     };
   }
 );

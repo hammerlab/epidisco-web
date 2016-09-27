@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Toggle from 'material-ui/Toggle';
-import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
+import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
 import EpiSection from 'epi/components/section';
 
@@ -10,7 +10,7 @@ import style from './style';
 
 const EpiToolsStep = (props) => (
   <Step>
-    <StepLabel className={style.label}>Configure: Additional tools</StepLabel>
+    <StepButton>Configure: Additional tools</StepButton>
     <StepContent>
       <p>
         Nullam odio metus, tincidunt a volutpat id, tristique ac felis.

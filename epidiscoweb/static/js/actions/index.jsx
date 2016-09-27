@@ -6,6 +6,12 @@ const EpiActions = {
       action: "new-workflow",
       workflow
     });
+  },
+  stepIndexChanged(stepIndex) {
+    EpiDispatcher.dispatch({
+      action: "new-step",
+      stepIndex
+    });
   }
 };
 

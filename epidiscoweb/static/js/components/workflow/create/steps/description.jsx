@@ -5,16 +5,15 @@ import TextField from 'material-ui/TextField';
 import LocalOffer from 'material-ui/svg-icons/maps/local-offer';
 
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
-import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
+import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
 import EpiSection from 'epi/components/section';
 
 import style from './style';
 
-
 const EpiDescriptionStep = (props) => (
   <Step>
-    <StepLabel className={style.label}>Describe your workflow</StepLabel>
+    <StepButton>Describe your workflow</StepButton>
     <StepContent>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.

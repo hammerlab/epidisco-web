@@ -17,31 +17,31 @@ class EpiStepper extends React.Component {
     super(props);
 
     this.state = {
-      finished: false,
       stepIndex: props.stepIndex || 0,
+      completed: [],
     };
   }
 
-  render() {
-    const handleNext = () => {
-      const {stepIndex} = this.state;
-      this.setState({
-        stepIndex: stepIndex + 1,
-        finished: stepIndex >= 3,
-      });
-    };
+  componentWillMount() {
+    const {stepIndex, completed} = this.state;
+    this.setState({completed: completed.concat(stepIndex)});
+  }
 
-    const handlePrev = () => {
-      const {stepIndex} = this.state;
-      if (stepIndex > 0) {
-        this.setState({stepIndex: stepIndex - 1});
-      }
-    };
+  componentWillUpdate(nextProps, nextState) {
+    const {stepIndex, completed} = nextState;
+    if (completed.indexOf(stepIndex) === -1) {
+      completed.setState({visited: completed.concat(stepIndex)});
+    }
+  }
+
+  render() {
+    const {stepIndex, completed} = this.state;
 
     return (
       <div className={style.main}>
         <Stepper
-          activeStep={this.state.stepIndex}
+          linear={false}
+          activeStep={stepIndex}
           orientation="vertical"
         >
           {EpiDescriptionStep()}

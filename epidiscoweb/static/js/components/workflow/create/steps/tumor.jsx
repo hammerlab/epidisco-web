@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
+import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
 import EpiSection from 'epi/components/section';
 import {DataFiles} from '../datafiles';
@@ -10,7 +10,7 @@ import style from './style';
 
 const EpiTumorStep = (props) => (
   <Step>
-    <StepLabel className={style.label}>Configure: Tumor</StepLabel>
+    <StepButton>Configure: Tumor</StepButton>
     <StepContent>
       <p>
         Praesent sem risus, fermentum et euismod sed, sollicitudin a dolor.
