@@ -11,18 +11,13 @@ import ClearFix from 'material-ui/internal/ClearFix';
 import classNames from 'classnames';
 import section from './style';
 
-const EpiSectionTitle = (props) => (
+const EpiSectionTitle = ({title}) => (
   <Toolbar>
     <ToolbarGroup>
-      <ToolbarTitle text={props.title || 'Example'} />
+      <ToolbarTitle text={title} />
     </ToolbarGroup>
   </Toolbar>
 );
-
-EpiSectionTitle.propTypes = {
-  title: PropTypes.string,
-  tooltip: PropTypes.string,
-};
 
 class EpiSection extends Component {
   propTypes: {
@@ -34,7 +29,7 @@ class EpiSection extends Component {
     const children = this.props.children;
 
     return (
-      <Paper className={section.paper} zDepth={3}>
+      <Paper className={section.paper}>
         <div className={section.root}>
           <div>
             <EpiSectionTitle title={this.props.title} />

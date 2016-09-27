@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Row, Col} from 'react-flexbox-grid/lib';
+import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 
 import EpiStore from 'epi/store';
 import EpiActions from 'epi/actions';
@@ -73,12 +73,14 @@ class EpiCreate extends React.Component {
     return (
         <Row>
           <Col xs={4}>
-            <EpiStepper stepIndex={wf.stepIndex}>
-              {steps}
-            </EpiStepper>
+            <EpiStepper stepIndex={wf.stepIndex}>{steps}</EpiStepper>
           </Col>
           <Col xs={8}>
             {sections}
+            <Steps.EpiNavigation
+              stepIndex={wf.stepIndex}
+              numberOfSteps={createOrder.length}
+            />
           </Col>
         </Row>
     );

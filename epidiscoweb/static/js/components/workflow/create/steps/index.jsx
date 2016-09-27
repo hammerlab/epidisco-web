@@ -3,6 +3,7 @@ import {EpiDescription, EpiDescriptionStep} from './description';
 import {EpiTumor, EpiTumorStep} from './tumor';
 import {EpiRNA, EpiRNAStep} from './rna';
 import {EpiTools, EpiToolsStep} from './tools';
+import EpiNavigation from './navigation';
 
 export {
   EpiNormal,
@@ -14,5 +15,6 @@ export {
   EpiRNA,
   EpiRNAStep,
   EpiTools,
-  EpiToolsStep
+  EpiToolsStep,
+  EpiNavigation
 }
