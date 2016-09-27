@@ -3,14 +3,16 @@ import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
-import EpiSection from 'epi/components/section';
+import EpiSection from '../section';
 
 import style from './style';
 
 
 const EpiToolsStep = (props) => (
-  <Step>
-    <StepButton>Configure: Additional tools</StepButton>
+  <Step key={props.key}>
+    <StepButton onClick={props.onClick} completed={props.completed}>
+      Configure: Additional tools
+    </StepButton>
     <StepContent>
       <p>
         Nullam odio metus, tincidunt a volutpat id, tristique ac felis.
@@ -22,7 +24,7 @@ const EpiToolsStep = (props) => (
 );
 
 const EpiTools = (props) => {
-  const toggles = props.tools.map(
+  const toggles = props.workflow.tools.map(
     (tool) => (
       <Toggle
         key={tool.name}

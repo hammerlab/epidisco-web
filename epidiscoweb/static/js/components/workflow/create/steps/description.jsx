@@ -7,13 +7,16 @@ import LocalOffer from 'material-ui/svg-icons/maps/local-offer';
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
-import EpiSection from 'epi/components/section';
+import EpiSection from '../section';
 
 import style from './style';
 
+
 const EpiDescriptionStep = (props) => (
-  <Step>
-    <StepButton>Describe your workflow</StepButton>
+  <Step key={props.key}>
+    <StepButton onClick={props.onClick} completed={props.completed}>
+      Describe your workflow
+    </StepButton>
     <StepContent>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -25,7 +28,7 @@ const EpiDescriptionStep = (props) => (
 );
 
 const EpiDescription = (props) => {
-  const desc = props.description;
+  const desc = props.workflow.description;
   const chips = desc.tags.map(
     (t, i) => (
       <Chip key={i} className={style.chip} style={{margin: 5}}>

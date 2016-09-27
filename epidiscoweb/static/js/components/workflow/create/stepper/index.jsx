@@ -3,14 +3,8 @@ import {Stepper,Step, StepLabel, StepContent} from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
-import {
-  EpiNormalStep,
-  EpiDescriptionStep,
-  EpiTumorStep,
-  EpiRNAStep,
-  EpiToolsStep
-} from '../steps';
 import style from './style'
+
 
 class EpiStepper extends React.Component {
   constructor(props) {
@@ -28,9 +22,9 @@ class EpiStepper extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    const {stepIndex, completed} = nextState;
-    if (completed.indexOf(stepIndex) === -1) {
-      completed.setState({visited: completed.concat(stepIndex)});
+    const {stepIndex} = nextProps;
+    if(stepIndex != this.props.stepIndex) {
+      this.setState({stepIndex});
     }
   }
 
@@ -44,11 +38,7 @@ class EpiStepper extends React.Component {
           activeStep={stepIndex}
           orientation="vertical"
         >
-          {EpiDescriptionStep()}
-          {EpiNormalStep()}
-          {EpiTumorStep()}
-          {EpiRNAStep()}
-          {EpiToolsStep()}
+          {this.props.children}
         </Stepper>
       </div>
     );

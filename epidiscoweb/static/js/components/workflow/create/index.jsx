@@ -6,15 +6,24 @@ import EpiStore from 'epi/store';
 import EpiActions from 'epi/actions';
 import {createEmptyWorkflow} from 'epiwf/util';
 import EpiStepper from './stepper';
-import {EpiNormal, EpiDescription, EpiTumor, EpiRNA, EpiTools} from './steps';
+import * as Steps from './steps';
+
+import classNames from 'classnames';
+import style from './style';
+
+
+const createOrder = [
+  {step: Steps.EpiDescriptionStep, section: Steps.EpiDescription, key: 'desc'},
+  {step: Steps.EpiNormalStep, section: Steps.EpiNormal, key: 'normal'},
+  {step: Steps.EpiTumorStep, section: Steps.EpiTumor, key: 'tumor'},
+  {step: Steps.EpiRNAStep, section: Steps.EpiRNA, key: 'rna'},
+  {step: Steps.EpiToolsStep, section: Steps.EpiTools, key: 'tools'}
+];
 
 const loadEmptyWorklow = (props) => {
   const workflow = createEmptyWorkflow(props.params.workflowId);
   EpiActions.workflowUpdated(workflow);
 };
-
-const steps = [
-];
 
 class EpiCreate extends React.Component {
   constructor(props) {
@@ -44,18 +53,32 @@ class EpiCreate extends React.Component {
 
   render() {
     const wf = this.state.workflow;
+    const sections = createOrder.map(({section: Epicomponent, key}, index) => {
+      let className = classNames(style.episection,
+        wf.stepIndex == index ? style.active : style.deactive);
+
+      return (
+        <div className={className} key={key}>
+          <Epicomponent workflow={wf} classNames={className} />
+        </div>
+      );
+    });
+
+    const steps = createOrder.map(({step, key}, index) => {
+      let onClick = () => EpiActions.stepIndexChanged(index);
+      let completed = false;
+      return step({onClick, completed, key});
+    });
 
     return (
         <Row>
           <Col xs={4}>
-            <EpiStepper stepIndex={wf.stepIndex} />
+            <EpiStepper stepIndex={wf.stepIndex}>
+              {steps}
+            </EpiStepper>
           </Col>
           <Col xs={8}>
-            <EpiDescription description={wf.description} />
-            <EpiNormal files={wf.normal.files} />
-            <EpiTumor files={wf.tumor.files} />
-            <EpiRNA files={wf.rna.files} />
-            <EpiTools tools={wf.tools} />
+            {sections}
           </Col>
         </Row>
     );

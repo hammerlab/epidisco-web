@@ -2,15 +2,17 @@ import React from 'react';
 
 import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
-import EpiSection from 'epi/components/section';
+import EpiSection from '../section';
 import {DataFiles} from '../datafiles';
 
 import style from './style';
 
 
 const EpiTumorStep = (props) => (
-  <Step>
-    <StepButton>Configure: Tumor</StepButton>
+  <Step key={props.key}>
+    <StepButton onClick={props.onClick} completed={props.completed}>
+      Configure: Tumor
+    </StepButton>
     <StepContent>
       <p>
         Praesent sem risus, fermentum et euismod sed, sollicitudin a dolor.
@@ -25,7 +27,7 @@ const EpiTumorStep = (props) => (
 const EpiTumor = (props) => (
  <EpiSection title="Tumor Sequencing Files">
   <DataFiles
-    files={props.files}
+    files={props.workflow.tumor.files}
     floatingLabelText="Tumor data file"
     hintText="tumor.fastq | tumor.bam"
   />
