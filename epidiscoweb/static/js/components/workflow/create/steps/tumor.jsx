@@ -24,7 +24,7 @@ const EpiTumorStep = (props) => (
 );
 
 const EpiTumor = (props) => (
- <EpiSection title="Tumor Sequencing Files">
+ <EpiSection title="Sequencing Data From Tumor Tissue Sample">
   <DataFiles
     files={props.workflow.tumor.files}
     floatingLabelText="Tumor data file"

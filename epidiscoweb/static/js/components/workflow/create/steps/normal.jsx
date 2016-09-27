@@ -24,7 +24,7 @@ const EpiNormalStep = (props) => (
 );
 
 const EpiNormal = (props) => (
-  <EpiSection title="Normal Sequencing Files">
+  <EpiSection title="Sequencing Data From Normal Tissue Sample">
     <DataFiles
       files={props.workflow.normal.files}
       floatingLabelText="Normal data file"
