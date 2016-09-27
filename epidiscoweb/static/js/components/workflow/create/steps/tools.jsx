@@ -1,9 +1,18 @@
 import React from 'react';
 
 import Toggle from 'material-ui/Toggle';
+import TextField from 'material-ui/TextField';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import {Step, StepButton, StepContent} from 'material-ui/Stepper';
+import {List, ListItem} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import Divider from 'material-ui/Divider';
+import ActionInfo from 'material-ui/svg-icons/action/info';
 
 import EpiSection from '../section';
+
+import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 
 import style from './style';
 
@@ -11,7 +20,7 @@ import style from './style';
 const EpiToolsStep = (props) => (
   <Step key={props.key}>
     <StepButton onClick={props.onClick} completed={props.completed}>
-      Configure: Additional tools
+      Configure: Additional parameters
     </StepButton>
     <StepContent>
       <p>
@@ -24,24 +33,88 @@ const EpiToolsStep = (props) => (
 );
 
 const EpiTools = (props) => {
-  const toggles = props.workflow.tools.map(
-    (tool) => (
-      <Toggle
-        key={tool.name}
-        label={tool.name}
-        className={style.toggle}
-        toggled={tool.run}
-        disabled={tool.disabled}
-        labelPosition="right"
-      />
-    )
+  const variantCallers = props.workflow.tools.map(
+    (tool) => {
+      let toggle = (
+        <Toggle
+          key={tool.name}
+          toggled={tool.run}
+          disabled={tool.disabled}
+        />
+      );
+
+      let icon = (
+        <ActionInfo />
+      );
+
+      return (
+        <ListItem
+          primaryText={tool.name}
+          leftIcon={icon}
+          rightToggle={toggle}
+        />
+      );
+    }
   );
 
   return (
-   <EpiSection title="Additional tools">
-    <div className={style.block}>
-      {toggles}
-    </div>
+   <EpiSection title="Additional parameters">
+     <Row>
+       <Col xs={6}>
+         <List className={style.toolscol}>
+           <Subheader>Variant callers</Subheader>
+           {variantCallers}
+           <Divider />
+           <Subheader>Reference Genome</Subheader>
+           <ListItem>
+             <SelectField
+                value={props.workflow.description.genome || "b37"}
+              >
+                {["b37", "b38", "hg18", "hg19"].map(
+                  (g) => <MenuItem key={g} value={g} primaryText={g} />
+                )}
+              </SelectField>
+           </ListItem>
+         </List>
+       </Col>
+       <Col xs={6}>
+         <List className={style.toolscol}>
+           <Subheader>MHC Alleles</Subheader>
+           <ListItem>
+              <TextField
+                hintText={"HLA-A*01:01\nHLA-A*02:01"}
+                floatingLabelText="HLA Types (one per line - optional)"
+                multiLine={true}
+                fullWidth={true}
+                rows={2}
+                rowsMax={10}
+                value={props.workflow.description.hlas.join("\n")}
+              />
+           </ListItem>
+           <ListItem
+             primaryText="infer via seq2HLA"
+             leftIcon={<ActionInfo />}
+             rightToggle={
+               <Toggle
+                 key="seq2HLA"
+                 toggled={false}
+                 disabled={false}
+               />
+             }
+           />
+           <Divider />
+           <Subheader>Regions of interest</Subheader>
+           <ListItem leftIcon={<ActionInfo />}>
+            <TextField
+              hintText="regions.bed"
+              floatingTitle="BED file URL"
+              value={props.workflow.description.regions}
+              fullWidth={true}
+            />
+           </ListItem>
+         </List>
+       </Col>
+     </Row>
    </EpiSection>
   );
 };
