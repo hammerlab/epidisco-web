@@ -22,69 +22,115 @@ const Spacer = () => (
   </Row>
 );
 
-const DataFile = (props) => {
-  let {part, fileIndex, file, removable} = props;
-  let buttonAction, ButtonIcon, disabled, secondary;
-
-  if(removable) {
-    buttonAction = (e) => EpiActions.fileRemoved(part, fileIndex);
-    ButtonIcon = ContentRemove;
-    disabled = true;
-    secondary = true;
-  } else {
-    buttonAction = (e) => { EpiActions.fileAdded(part, file); };
-    ButtonIcon = ContentAdd;
-    disabled = false;
-    secondary = false;
+class DataFile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fileUri1: props.file.fileUri1,
+      fileUri2: props.file.fileUri1,
+      fileType: props.file.fileType || 'SE'
+    }
   }
 
-  return (
-    <Row bottom="xs" >
-      <Col xs={3}>
-        <SelectField
-          value={file.filetype || "SE"}
-          className={style.datafiletype}
-          floatingLabelText="Sequence type"
-          style={{width: 120}}
-          disabled={disabled}
-          onChange={(e, k, v) => {file.filetype = v;}}
-        >
-          <MenuItem value={"SE"} primaryText="Single" />
-          <MenuItem value={"PE"} primaryText="Paired" />
-        </SelectField>
-      </Col>
-      <Col xs={8}>
+  render() {
+    let {fileUri1, fileUri2, fileType} = this.state;
+    let props = this.props;
+    let {part, fileIndex, removable, floatingLabelText} = props;
+    let buttonAction, ButtonIcon, disabled, secondary;
+
+    if(removable) {
+      buttonAction = (e) => EpiActions.fileRemoved(part, fileIndex);
+      ButtonIcon = ContentRemove;
+      disabled = true;
+      secondary = true;
+    } else {
+      buttonAction = (e) => {
+        EpiActions.fileAdded(part, this.state);
+      };
+      ButtonIcon = ContentAdd;
+      disabled = false;
+      secondary = false;
+    }
+
+    const singleFile = () => (
+      <TextField
+        key="single"
+        hintText={props.hintText}
+        floatingLabelText={floatingLabelText}
+        className={style.datafiletext}
+        defaultValue={fileUri1}
+        fullWidth={true}
+        disabled={disabled}
+        onChange={(e, v) => this.setState({fileUri1: v})}
+      />
+    );
+
+    const pairedFile = () => (
+      <div>
         <TextField
+          key="pair1"
           hintText={props.hintText}
-          floatingLabelText={props.floatingLabelText}
+          floatingLabelText={`${floatingLabelText} - Pair #1`}
           className={style.datafiletext}
-          defaultValue={file.uri}
+          defaultValue={fileUri1}
           fullWidth={true}
           disabled={disabled}
-          onChange={(e, v) => {file.uri = v;}}
+          onChange={(e, v) => this.setState({fileUri1: v})}
         />
-      </Col>
-      <Col xs={1}>
-        <FloatingActionButton
-          mini={true}
-          onTouchTap={buttonAction}
-          secondary={secondary}
-        >
-          <ButtonIcon />
-        </FloatingActionButton>
-      </Col>
-    </Row>
-)};
+        <TextField
+          key="pair2"
+          hintText={props.hintText}
+          floatingLabelText={`${floatingLabelText} - Pair #2`}
+          className={style.datafiletext}
+          defaultValue={fileUri2}
+          fullWidth={true}
+          disabled={disabled}
+          onChange={(e, v) => this.setState({fileUri2: v})}
+        />
+      </div>
+    );
+
+    return (
+      <Row middle="xs">
+        <Col xs={3}>
+          <SelectField
+            value={fileType}
+            className={style.datafiletype}
+            floatingLabelText="Sequence type"
+            style={{width: 120}}
+            disabled={disabled}
+            onChange={(e, k, v) => this.setState({fileType: v})}
+          >
+            <MenuItem value={"SE"} primaryText="Single" />
+            <MenuItem value={"PE"} primaryText="Paired" />
+          </SelectField>
+        </Col>
+        <Col xs={8}>
+          {fileType === "SE" ? singleFile() : pairedFile()}
+        </Col>
+        <Col xs={1}>
+          <FloatingActionButton
+            mini={true}
+            onTouchTap={buttonAction}
+            secondary={secondary}
+          >
+            <ButtonIcon />
+          </FloatingActionButton>
+        </Col>
+      </Row>
+    );
+  }
+}
 
 const DataFiles = (props) => {
   const files = props.files || [];
   const fileViews = files.map(
     (file, idx) => (
       <DataFile
+        key={idx}
         removable={true}
         hintText={props.hintText}
         floatingLabelText={props.floatingLabelText}
-        key="newfile"
         file={file}
         fileIndex={idx}
         part={props.part}
@@ -96,7 +142,7 @@ const DataFiles = (props) => {
     <Grid fluid>
       {fileViews}
       <DataFile
-        file={{filetype: 'SE', uri: ''}}
+        file={{fileType: 'SE', fileUri1: '', fileUri2: ''}}
         hintText={props.hintText}
         floatingLabelText={props.floatingLabelText}
         part={props.part}
