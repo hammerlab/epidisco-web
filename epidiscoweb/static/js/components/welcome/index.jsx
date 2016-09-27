@@ -12,8 +12,6 @@ import {
 import RaisedButton from 'material-ui/RaisedButton';
 import {Row, Col} from 'react-flexbox-grid/lib';
 
-import uuid from 'uuid';
-
 import style from './style';
 
 const EpiWelcome = (props) => (
@@ -43,7 +41,7 @@ const EpiWelcome = (props) => (
           Maecenas sollicitudin scelerisque pulvinar.
         </CardText>
         <CardActions>
-          <Link to={"create/" + uuid.v1()}>
+          <Link to="/new">
             <RaisedButton
               label="Create a new workflow"
               fullWidth={true}

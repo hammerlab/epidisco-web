@@ -1,5 +1,6 @@
 import EpiDispatcher from 'epi/dispatcher';
 
+
 const EpiActions = {
   workflowUpdated(workflow) {
     EpiDispatcher.dispatch({
