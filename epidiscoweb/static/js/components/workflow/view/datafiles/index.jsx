@@ -13,13 +13,12 @@ import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 
 import style from './style';
 
-
 class DataFile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       fileUri1: props.file.fileUri1,
-      fileUri2: props.file.fileUri1,
+      fileUri2: props.file.fileUri2,
       fileType: props.file.fileType || 'SE'
     }
   }
@@ -30,30 +29,14 @@ class DataFile extends React.Component {
     let {part, fileIndex, removable, floatingLabelText} = props;
     let buttonAction, ButtonIcon, disabled, secondary;
 
-    if(removable) {
-      buttonAction = (e) => EpiActions.fileRemoved(part, fileIndex);
-      ButtonIcon = ContentRemove;
-      disabled = true;
-      secondary = true;
-    } else {
-      buttonAction = (e) => {
-        EpiActions.fileAdded(part, this.state);
-      };
-      ButtonIcon = ContentAdd;
-      disabled = false;
-      secondary = false;
-    }
-
     const singleFile = () => (
       <TextField
         key="single"
-        hintText={props.hintText}
         floatingLabelText={floatingLabelText}
         className={style.datafiletext}
-        defaultValue={fileUri1}
+        value={fileUri1}
         fullWidth={true}
-        disabled={disabled}
-        onChange={(e, v) => this.setState({fileUri1: v})}
+        disabled={true}
       />
     );
 
@@ -61,23 +44,19 @@ class DataFile extends React.Component {
       <div>
         <TextField
           key="pair1"
-          hintText={props.hintText}
           floatingLabelText={`${floatingLabelText} - Pair #1`}
           className={style.datafiletext}
           defaultValue={fileUri1}
           fullWidth={true}
-          disabled={disabled}
-          onChange={(e, v) => this.setState({fileUri1: v})}
+          disabled={true}
         />
         <TextField
           key="pair2"
-          hintText={props.hintText}
           floatingLabelText={`${floatingLabelText} - Pair #2`}
           className={style.datafiletext}
           defaultValue={fileUri2}
           fullWidth={true}
-          disabled={disabled}
-          onChange={(e, v) => this.setState({fileUri2: v})}
+          disabled={true}
         />
       </div>
     );
@@ -90,24 +69,14 @@ class DataFile extends React.Component {
             className={style.datafiletype}
             floatingLabelText="Sequence type"
             style={{width: 120, fontSize: 14}}
-            disabled={disabled}
-            onChange={(e, k, v) => this.setState({fileType: v})}
+            disabled={true}
           >
             <MenuItem value={"SE"} primaryText="Single-end" />
             <MenuItem value={"PE"} primaryText="Pair-end" />
           </SelectField>
         </Col>
-        <Col xs={8}>
+        <Col xs={9}>
           {fileType === "SE" ? singleFile() : pairedFile()}
-        </Col>
-        <Col xs={1}>
-          <FloatingActionButton
-            mini={true}
-            onTouchTap={buttonAction}
-            secondary={secondary}
-          >
-            <ButtonIcon />
-          </FloatingActionButton>
         </Col>
       </Row>
     );
@@ -121,11 +90,9 @@ const DataFiles = (props) => {
       <DataFile
         key={idx}
         removable={true}
-        hintText={props.hintText}
         floatingLabelText={props.floatingLabelText}
         file={file}
         fileIndex={idx}
-        part={props.part}
       />
     )
   );
@@ -133,13 +100,6 @@ const DataFiles = (props) => {
   return (
     <Grid fluid>
       {fileViews}
-      <DataFile
-        file={{fileType: 'SE', fileUri1: '', fileUri2: ''}}
-        hintText={props.hintText}
-        floatingLabelText={props.floatingLabelText}
-        part={props.part}
-        removable={false}
-      />
     </Grid>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Step, StepButton, StepContent} from 'material-ui/Stepper';
 
-import EpiSection from '../section';
+import EpiSection from 'epiwf/util/section';
 import {DataFiles} from '../datafiles';
 
 import style from './style';

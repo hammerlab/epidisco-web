@@ -10,7 +10,7 @@ import Assessment from 'material-ui/svg-icons/action/assessment';
 import LinkIcon from 'material-ui/svg-icons/content/link';
 import {Step, StepButton} from 'material-ui/Stepper';
 
-import EpiSection from '../section';
+import EpiSection from 'epiwf/util/section';
 import EpiActions from 'epi/actions';
 
 import style from './style';
