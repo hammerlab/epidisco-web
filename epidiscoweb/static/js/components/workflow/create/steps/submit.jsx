@@ -12,6 +12,7 @@ import {Step, StepButton} from 'material-ui/Stepper';
 
 import EpiSection from 'epiwf/util/section';
 import EpiActions from 'epi/actions';
+import EpiStore from 'epi/store';
 
 import style from './style';
 
@@ -48,6 +49,16 @@ class EpiSubmit extends React.Component {
     const handleSubmit = () => {
       EpiActions.workflowSubmitted(true);
       this.setState({open: false});
+
+      let xmlHttp = new XMLHttpRequest();
+      let {workflow} = EpiStore.getWorkflowState();
+      let id = workflow.description.id;
+      let wfstr = encodeURIComponent(JSON.stringify(workflow));
+      let url = `/workflows/${id}/`;
+      xmlHttp.open("PUT", url, false); // false for synchronous request
+      xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlHttp.send(`data=${wfstr}`);
+      console.log(xmlHttp.response);
     };
 
     const handleCancel = () => {
