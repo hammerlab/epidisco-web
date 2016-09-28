@@ -3,12 +3,12 @@ from flask_restful import Api, Resource
 
 class WorkflowAPI(Resource):
     def get(self, id):
-        workflow = open('/epi/{}.json'.format(id), 'r');
+        workflow = open('/epi/submissions/{}.json'.format(id), 'r');
         return {'workflow': workflow.read()};
 
     def put(self, id):
         workflow = request.form['data'];
-        wf = open('/epi/{}.json'.format(id), 'w');
+        wf = open('/epi/submissions/{}.json'.format(id), 'w');
         wf.write(workflow);
         wf.close();
         return workflow;
