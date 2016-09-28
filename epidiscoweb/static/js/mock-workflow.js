@@ -11,7 +11,7 @@ const MockWorkflow = {
     seq2hla: false,
     genome: "b37",
     regions: 'https://hammerlab.org/regions.bed',
-    email: "arman@hammerlab.org"
+    email: "epidisco@hammerlab.org"
   },
   normal: {
     files: [
