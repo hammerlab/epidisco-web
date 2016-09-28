@@ -18,25 +18,26 @@ class EpiFooter extends Component {
   }
 
   render() {
-    const selectnav = (index) => this.setState({selectedIndex: index});
-
     return (
       <Paper zDepth={1} className={footer.paper}>
         <BottomNavigation selectedIndex={this.state.selectedIndex}>
           <BottomNavigationItem
-            label="Contact"
+            className={footer.label}
+            label="Hammer Lab"
+            href="http://hammerlab.org/contact/"
             icon={<ContactMail className={footer.icon}/>}
-            onTouchTap={() => selectnav(0)}
           />
           <BottomNavigationItem
-            label="Source Code"
+            className={footer.label}
+            label="Epidisco-web"
+            href="https://github.com/hammerlab/epidisco-web/"
             icon={<Code className={footer.icon}/>}
-            onTouchTap={() => selectnav(1)}
           />
           <BottomNavigationItem
-            label="Pipeline"
+            className={footer.label}
+            label="Epidisco"
+            href="https://github.com/hammerlab/epidisco/"
             icon={<CloudDownload className={footer.icon}/>}
-            onTouchTap={() => selectnav(2)}
           />
         </BottomNavigation>
       </Paper>
