@@ -22,7 +22,7 @@ Then run the following commands to bootstrap your environment:
     git clone https://github.com/armish/epidisco-web
     cd epidisco-web
     pip install -r requirements/dev.txt
-    bower install
+    npm install && npm run bundle
     flask run
 
 You will see a pretty welcome screen.
