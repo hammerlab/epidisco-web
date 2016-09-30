@@ -1,6 +1,6 @@
 var path = require('path');
 
-var epiPath = path.resolve(__dirname, 'epidiscoweb/static/js/');
+var epiPath = path.resolve(__dirname, 'epidiscoweb/js/');
 var resolveEpiPath = function(subdir) {
   return path.resolve(epiPath, subdir);
 };
@@ -8,8 +8,7 @@ var resolveEpiPath = function(subdir) {
 module.exports = {
     entry: resolveEpiPath('main.jsx'),
     output: {
-        path: resolveEpiPath('dist/'),
-        publicPath: '/static/js/dist/',
+        path: 'epidiscoweb/static/js/',
         filename: 'bundle.js'
     },
     resolve: {

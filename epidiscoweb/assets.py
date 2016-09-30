@@ -2,8 +2,9 @@
 """Application assets."""
 from flask_assets import Bundle, Environment
 
+# These are all relative to static
 js = Bundle(
-  './js/dist/bundle.js',
+  './js/bundle.js',
   output='public/js/bundle.js'
 )
 
