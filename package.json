@@ -1,13 +1,13 @@
 {
   "name": "epidisco-web",
   "version": "1.0.0",
-  "description": "epidisco-web ============",
-  "main": "epidiscoweb/js/script.js",
+  "description": "Web interface to easily describe and submit epidisco jobs",
+  "main": "epidiscoweb/js/main.jsx",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "npm run lint",
+    "test": "echo 'no test yet'",
     "bundle": "webpack --progress --colors --optimize-minimize",
     "watch": "webpack --progress --colors --watch --display-error-details",
     "lint": "eslint epidiscoweb/js/ --ext .js --ext .jsx --cache",

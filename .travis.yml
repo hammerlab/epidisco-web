@@ -1,15 +1,24 @@
 sudo: false
-language: python
-python:
-  - 3.5
-install: pip install -r requirements/dev.txt
+language: node_js
+node_js: "6"
+before_install:
+  # Setup python environment
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda info -a
 script:
-  - export FLASK_APP=./autoapp.py
-  - export FLASK_DEBUG=1
-  - npm install npm@">3.0.0"
-  - export PATH=$(npm bin):$PATH
+  # Set the isolated environment
+  - conda create -q -n epitest python=3
+  - source activate epitest
+  # Install requirements
+  - pip install -r requirements/dev.txt
   - npm install
+  # Run linters
   - npm run lint
-  - npm run bundle
   - flask lint
+  # Run tests
+  - npm run test
   - flask test
