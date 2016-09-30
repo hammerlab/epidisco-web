@@ -12,20 +12,30 @@ First, set your app’s secret key as an environment variable. For example, add 
 export EPIDISCO_WEB_SECRET='something-really-secret'
 ```
 
-Before running shell commands, set the `FLASK_APP` and `FLASK_DEBUG` environment variables :
+Before running shell commands, set the `FLASK_APP` and `FLASK_DEBUG` environment variables:
 
     export FLASK_APP=/path/to/epidisco-web/autoapp.py
     export FLASK_DEBUG=1
+
+Although optional, it is highly recommended that you work within
+an isolated Python environment (such as [conda](http://conda.pydata.org/miniconda.html)) for the development:
+
+    conda create -n eweb python=3
+    source activate eweb
 
 Then run the following commands to bootstrap your environment:
 
     git clone https://github.com/armish/epidisco-web
     cd epidisco-web
     pip install -r requirements/dev.txt
-    npm install && npm run bundle
+    npm install
+
+and bundle the Javascript and run Flask:
+
+    npm run bundle
     flask run
 
-You will see a pretty welcome screen.
+Browsing to [localhost:8080](localhost:8080), you will see a pretty welcome screen.
 
 Once you have installed your DBMS, run the following to create your app’s database tables and perform the initial migration :
 
