@@ -96,3 +96,6 @@ epidiscoweb/static/*/bundle.*
 
 #DB
 *.db
+
+# ESlint Cache
+.eslintcache

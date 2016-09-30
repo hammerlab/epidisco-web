@@ -7,5 +7,8 @@ install: pip install -r requirements/dev.txt
 script:
   - export FLASK_APP=./autoapp.py
   - export FLASK_DEBUG=1
+  - npm install
+  - npm run lint
+  - npm run bundle
   - flask lint
   - flask test

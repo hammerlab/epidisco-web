@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "bundle": "webpack --progress --colors --optimize-minimize",
     "watch": "webpack --progress --colors --watch --display-error-details",
     "lint": "eslint epidiscoweb/js/ --ext .js --ext .jsx --cache",
@@ -48,6 +48,7 @@
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.25.0",
     "eslint": "^3.7.0",
+    "eslint-plugin-react": "^6.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "node-sass": "^3.10.0",
