@@ -2,13 +2,12 @@ sudo: false
 language: python
 python:
   - 3.5
-node_js:
-  - 5.5
-before_install: npm update -q
 install: pip install -r requirements/dev.txt
 script:
   - export FLASK_APP=./autoapp.py
   - export FLASK_DEBUG=1
+  - npm install npm@">3.0.0"
+  - export PATH=$(npm bin):$PATH
   - npm install
   - npm run lint
   - npm run bundle
