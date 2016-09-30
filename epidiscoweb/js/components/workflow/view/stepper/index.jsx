@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import {Grid, Row, Col} from "react-flexbox-grid/lib";
 
 import {
   Step,
   Stepper,
   StepLabel,
-} from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import Assignment from 'material-ui/svg-icons/action/assignment';
+} from "material-ui/Stepper";
+import RaisedButton from "material-ui/RaisedButton";
+import Assignment from "material-ui/svg-icons/action/assignment";
 
-import style from './style';
+import style from "./style";
 
 const EpiStepper = () => (
   <Grid fluid className={style.stepper}>

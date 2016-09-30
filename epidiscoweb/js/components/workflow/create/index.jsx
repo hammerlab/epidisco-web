@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import {Row, Col} from "react-flexbox-grid/lib";
 
-import EpiStore from 'epi/store';
-import EpiActions from 'epi/actions';
-import {createEmptyWorkflow} from 'epiwf/util';
-import EpiStepper from './stepper';
-import * as Steps from './steps';
+import EpiStore from "epi/store";
+import EpiActions from "epi/actions";
+import {createEmptyWorkflow} from "epiwf/util";
+import EpiStepper from "./stepper";
+import * as Steps from "./steps";
 
-import classNames from 'classnames';
-import style from './style';
+import classNames from "classnames";
+import style from "./style";
 
 
 const createOrder = [
-  {step: Steps.EpiDescriptionStep, section: Steps.EpiDescription, key: 'desc'},
-  {step: Steps.EpiNormalStep, section: Steps.EpiNormal, key: 'normal'},
-  {step: Steps.EpiTumorStep, section: Steps.EpiTumor, key: 'tumor'},
-  {step: Steps.EpiRNAStep, section: Steps.EpiRNA, key: 'rna'},
-  {step: Steps.EpiToolsStep, section: Steps.EpiTools, key: 'tools'},
-  {step: Steps.EpiSubmitStep, section: Steps.EpiSubmit, key: 'submit'}
+  {step: Steps.EpiDescriptionStep, section: Steps.EpiDescription, key: "desc"},
+  {step: Steps.EpiNormalStep, section: Steps.EpiNormal, key: "normal"},
+  {step: Steps.EpiTumorStep, section: Steps.EpiTumor, key: "tumor"},
+  {step: Steps.EpiRNAStep, section: Steps.EpiRNA, key: "rna"},
+  {step: Steps.EpiToolsStep, section: Steps.EpiTools, key: "tools"},
+  {step: Steps.EpiSubmitStep, section: Steps.EpiSubmit, key: "submit"}
 ];
 
 const loadEmptyWorklow = (props) => {
@@ -90,6 +90,6 @@ class EpiCreate extends React.Component {
         </Row>
     );
   }
-};
+}
 
 export default EpiCreate;

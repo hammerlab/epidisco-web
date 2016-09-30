@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import {Step, StepButton, StepContent} from 'material-ui/Stepper';
+import {Step, StepButton, StepContent} from "material-ui/Stepper";
 
-import EpiSection from 'epiwf/util/section';
-import {DataFiles} from '../datafiles';
-
-import style from './style';
+import EpiSection from "epiwf/util/section";
+import {DataFiles} from "../datafiles";
 
 
 const EpiNormalStep = (props) => (

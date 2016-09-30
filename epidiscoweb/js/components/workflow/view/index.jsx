@@ -1,34 +1,29 @@
-import React from 'react';
+import React from "react";
 
-import {Row, Col} from 'react-flexbox-grid/lib';
+import {Row, Col} from "react-flexbox-grid/lib";
 
-import EpiStore from 'epi/store';
-import EpiActions from 'epi/actions';
-import {fetchWorkflow, createEmptyWorkflow} from 'epiwf/util';
-import EpiStepper from './stepper';
-import * as Steps from './steps';
+import EpiStore from "epi/store";
+import EpiActions from "epi/actions";
+import {fetchWorkflow} from "epiwf/util";
+import EpiStepper from "./stepper";
+import * as Steps from "./steps";
 
-import classNames from 'classnames';
-import style from './style';
+import classNames from "classnames";
+import style from "./style";
 
 
 const viewOrder = [
-  {section: Steps.EpiDescription, key: 'desc'},
-  {section: Steps.EpiNormal, key: 'normal'},
-  {section: Steps.EpiTumor, key: 'tumor'},
-  {section: Steps.EpiRNA, key: 'rna'},
-  {section: Steps.EpiTools, key: 'tools'}
+  {section: Steps.EpiDescription, key: "desc"},
+  {section: Steps.EpiNormal, key: "normal"},
+  {section: Steps.EpiTumor, key: "tumor"},
+  {section: Steps.EpiRNA, key: "rna"},
+  {section: Steps.EpiTools, key: "tools"}
 ];
 
 const fetchAndLoadWorkflow = (props) => {
   fetchWorkflow(props.params.workflowId, (workflow) => {
     EpiActions.workflowUpdated(workflow);
   });
-};
-
-const loadEmptyWorklow = (props) => {
-  const workflow = createEmptyWorkflow(props.params.workflowId);
-  EpiActions.workflowUpdated(workflow);
 };
 
 class EpiView extends React.Component {
@@ -53,7 +48,7 @@ class EpiView extends React.Component {
 
   render() {
     const wf = this.state.workflow;
-    const sections = viewOrder.map(({section: Epicomponent, key}, index) => {
+    const sections = viewOrder.map(({section: Epicomponent, key}) => {
       let className = classNames(style.episection, style.active);
 
       return (

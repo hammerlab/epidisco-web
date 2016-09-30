@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
-import TextField from 'material-ui/TextField';
+import {Grid, Row, Col} from "react-flexbox-grid/lib";
+import TextField from "material-ui/TextField";
 
-import EpiSection from 'epiwf/util/section';
+import EpiSection from "epiwf/util/section";
 
-import style from './style';
 
 const EpiDescription = (props) => {
   const desc = props.workflow.description;

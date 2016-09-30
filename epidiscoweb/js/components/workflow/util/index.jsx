@@ -1,4 +1,4 @@
-import MockWorkflow from 'epi/mock-workflow';
+import MockWorkflow from "epi/mock-workflow";
 
 const createEmptyWorkflow = (workflowId) => ({
   stepIndex: 0,

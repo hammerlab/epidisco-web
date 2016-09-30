@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Grid, Row, Col} from "react-flexbox-grid/lib";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-import EpiHeader from 'epi/components/header';
-import EpiFooter from 'epi/components/footer';
+import EpiHeader from "epi/components/header";
+import EpiFooter from "epi/components/footer";
 
-import style from './style';
+import style from "./style";
 
 class EpiHome extends React.Component {
   render() {

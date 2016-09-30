@@ -1,10 +1,10 @@
-import {EpiNormal, EpiNormalStep} from './normal';
-import {EpiDescription, EpiDescriptionStep} from './description';
-import {EpiTumor, EpiTumorStep} from './tumor';
-import {EpiRNA, EpiRNAStep} from './rna';
-import {EpiTools, EpiToolsStep} from './tools';
-import {EpiSubmit, EpiSubmitStep} from './submit';
-import EpiNavigation from './navigation';
+import {EpiNormal, EpiNormalStep} from "./normal";
+import {EpiDescription, EpiDescriptionStep} from "./description";
+import {EpiTumor, EpiTumorStep} from "./tumor";
+import {EpiRNA, EpiRNAStep} from "./rna";
+import {EpiTools, EpiToolsStep} from "./tools";
+import {EpiSubmit, EpiSubmitStep} from "./submit";
+import EpiNavigation from "./navigation";
 
 export {
   EpiNormal,
@@ -20,4 +20,4 @@ export {
   EpiSubmit,
   EpiSubmitStep,
   EpiNavigation
-}
+};

@@ -1,15 +1,12 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from "react";
 
-import IconButton from 'material-ui/IconButton';
-import CodeIcon from 'material-ui/svg-icons/action/code';
-import Paper from 'material-ui/Paper';
-import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
-import transitions from 'material-ui/styles/transitions';
+import Paper from "material-ui/Paper";
+import {Toolbar, ToolbarGroup, ToolbarTitle} from "material-ui/Toolbar";
 
-import ClearFix from 'material-ui/internal/ClearFix';
+import ClearFix from "material-ui/internal/ClearFix";
 
-import classNames from 'classnames';
-import section from './style';
+import style from "./style";
+
 
 const EpiSectionTitle = ({title}) => (
   <Toolbar>
@@ -20,22 +17,17 @@ const EpiSectionTitle = ({title}) => (
 );
 
 class EpiSection extends Component {
-  propTypes: {
-    children: PropTypes.node,
-    title: PropTypes.string
-  }
-
   render() {
     const children = this.props.children;
 
     return (
-      <Paper className={section.paper}>
-        <div className={section.root}>
+      <Paper className={style.paper}>
+        <div className={style.root}>
           <div>
             <EpiSectionTitle title={this.props.title} />
           </div>
         </div>
-        <ClearFix className={section.block}>{children}</ClearFix>
+        <ClearFix className={style.block}>{children}</ClearFix>
       </Paper>
     );
   }

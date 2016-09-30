@@ -1,20 +1,19 @@
-import React from 'react';
-import {Link} from 'react-router';
+import React from "react";
+import {Link} from "react-router";
 
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
-import Done from 'material-ui/svg-icons/action/done';
-import Assessment from 'material-ui/svg-icons/action/assessment';
-import LinkIcon from 'material-ui/svg-icons/content/link';
-import {Step, StepButton} from 'material-ui/Stepper';
+import Dialog from "material-ui/Dialog";
+import FlatButton from "material-ui/FlatButton";
+import RaisedButton from "material-ui/RaisedButton";
+import ChevronLeft from "material-ui/svg-icons/navigation/chevron-left";
+import Done from "material-ui/svg-icons/action/done";
+import LinkIcon from "material-ui/svg-icons/content/link";
+import {Step, StepButton} from "material-ui/Stepper";
 
-import EpiSection from 'epiwf/util/section';
-import EpiActions from 'epi/actions';
-import EpiStore from 'epi/store';
+import EpiSection from "epiwf/util/section";
+import EpiActions from "epi/actions";
+import EpiStore from "epi/store";
 
-import style from './style';
+import style from "./style";
 
 
 const EpiSubmitStep = (props) => (
@@ -31,10 +30,10 @@ class EpiSubmit extends React.Component {
     this.state = {
       open: props.open || false,
       workflow: props.workflow
-    }
+    };
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(nextProps) {
     const {open} = nextProps;
     if(open != this.props.open) {
       this.setState({open});
@@ -42,10 +41,6 @@ class EpiSubmit extends React.Component {
   }
 
   render() {
-    const handleOpen = () => {
-      this.setState({open: true});
-    };
-
     const handleSubmit = () => {
       EpiActions.workflowSubmitted(true);
       this.setState({open: false});
@@ -58,7 +53,6 @@ class EpiSubmit extends React.Component {
       xmlHttp.open("PUT", url, false); // false for synchronous request
       xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xmlHttp.send(`data=${wfstr}`);
-      console.log(xmlHttp.response);
     };
 
     const handleCancel = () => {
@@ -119,6 +113,6 @@ class EpiSubmit extends React.Component {
       </div>
     );
   }
-};
+}
 
 export {EpiSubmit, EpiSubmitStep};

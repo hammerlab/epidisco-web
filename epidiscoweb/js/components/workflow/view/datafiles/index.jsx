@@ -1,17 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import TextField from 'material-ui/TextField';
+import SelectField from "material-ui/SelectField";
+import MenuItem from "material-ui/MenuItem";
+import TextField from "material-ui/TextField";
 
-import EpiActions from 'epi/actions';
+import {Grid, Row, Col} from "react-flexbox-grid/lib";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import style from "./style";
 
-import style from './style';
 
 class DataFile extends React.Component {
   constructor(props) {
@@ -19,15 +15,14 @@ class DataFile extends React.Component {
     this.state = {
       fileUri1: props.file.fileUri1,
       fileUri2: props.file.fileUri2,
-      fileType: props.file.fileType || 'SE'
-    }
+      fileType: props.file.fileType || "SE"
+    };
   }
 
   render() {
     let {fileUri1, fileUri2, fileType} = this.state;
     let props = this.props;
-    let {part, fileIndex, removable, floatingLabelText} = props;
-    let buttonAction, ButtonIcon, disabled, secondary;
+    let {floatingLabelText} = props;
 
     const singleFile = () => (
       <TextField

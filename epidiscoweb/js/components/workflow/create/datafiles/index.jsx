@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import TextField from 'material-ui/TextField';
+import FloatingActionButton from "material-ui/FloatingActionButton";
+import ContentAdd from "material-ui/svg-icons/content/add";
+import ContentRemove from "material-ui/svg-icons/content/remove";
+import SelectField from "material-ui/SelectField";
+import MenuItem from "material-ui/MenuItem";
+import TextField from "material-ui/TextField";
 
-import EpiActions from 'epi/actions';
+import EpiActions from "epi/actions";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import {Grid, Row, Col} from "react-flexbox-grid/lib";
 
-import style from './style';
+import style from "./style";
 
 
 class DataFile extends React.Component {
@@ -20,8 +20,8 @@ class DataFile extends React.Component {
     this.state = {
       fileUri1: props.file.fileUri1,
       fileUri2: props.file.fileUri1,
-      fileType: props.file.fileType || 'SE'
-    }
+      fileType: props.file.fileType || "SE"
+    };
   }
 
   render() {
@@ -31,12 +31,12 @@ class DataFile extends React.Component {
     let buttonAction, ButtonIcon, disabled, secondary;
 
     if(removable) {
-      buttonAction = (e) => EpiActions.fileRemoved(part, fileIndex);
+      buttonAction = () => EpiActions.fileRemoved(part, fileIndex);
       ButtonIcon = ContentRemove;
       disabled = true;
       secondary = true;
     } else {
-      buttonAction = (e) => {
+      buttonAction = () => {
         EpiActions.fileAdded(part, this.state);
       };
       ButtonIcon = ContentAdd;
@@ -134,7 +134,7 @@ const DataFiles = (props) => {
     <Grid fluid>
       {fileViews}
       <DataFile
-        file={{fileType: 'SE', fileUri1: '', fileUri2: ''}}
+        file={{fileType: "SE", fileUri1: "", fileUri2: ""}}
         hintText={props.hintText}
         floatingLabelText={props.floatingLabelText}
         part={props.part}

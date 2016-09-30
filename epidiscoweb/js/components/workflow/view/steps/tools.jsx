@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import Toggle from 'material-ui/Toggle';
-import TextField from 'material-ui/TextField';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import {List, ListItem} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import Divider from 'material-ui/Divider';
+import Toggle from "material-ui/Toggle";
+import TextField from "material-ui/TextField";
+import SelectField from "material-ui/SelectField";
+import MenuItem from "material-ui/MenuItem";
+import {List, ListItem} from "material-ui/List";
+import Subheader from "material-ui/Subheader";
+import Divider from "material-ui/Divider";
 
-import EpiSection from 'epiwf/util/section';
+import EpiSection from "epiwf/util/section";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import {Row, Col} from "react-flexbox-grid/lib";
 
-import style from './style';
+import style from "./style";
 
 
 const EpiTools = (props) => {

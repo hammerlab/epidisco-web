@@ -1,9 +1,7 @@
-import React from 'react';
-import {Stepper,Step, StepLabel, StepContent} from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+import React from "react";
+import {Stepper} from "material-ui/Stepper";
 
-import style from './style'
+import style from "./style";
 
 
 class EpiStepper extends React.Component {

@@ -1,15 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import {Row, Col} from "react-flexbox-grid/lib";
 
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
+import RaisedButton from "material-ui/RaisedButton";
+import ChevronRight from "material-ui/svg-icons/navigation/chevron-right";
+import ChevronLeft from "material-ui/svg-icons/navigation/chevron-left";
 
-import EpiActions from 'epi/actions';
-
-import style from './style';
+import EpiActions from "epi/actions";
 
 
 const EpiNavigation = ({stepIndex, numberOfSteps}) => {
@@ -39,7 +36,7 @@ const EpiNavigation = ({stepIndex, numberOfSteps}) => {
         />
       </Col>
     </Row>
-  )
+  );
 };
 
 export default EpiNavigation;

@@ -1,11 +1,10 @@
-import React from 'react';
-import {Link} from 'react-router';
+import React from "react";
+import {Link} from "react-router";
 
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import BlurCircular from 'material-ui/svg-icons/image/blur-circular';
+import AppBar from "material-ui/AppBar";
+import IconButton from "material-ui/IconButton";
+import RaisedButton from "material-ui/RaisedButton";
+import BlurCircular from "material-ui/svg-icons/image/blur-circular";
 
 const EpiHeaderLeft = () => (
   <Link to="/">
@@ -19,7 +18,7 @@ const EpiHeaderRight = () => (
       label="New Workflow"
       secondary={true}
       style={{marginTop: 5}}
-      labelStyle={{color: 'white'}}
+      labelStyle={{color: "white"}}
     />
   </Link>
 );

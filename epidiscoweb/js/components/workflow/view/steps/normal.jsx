@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import EpiSection from 'epiwf/util/section';
-import {DataFiles} from '../datafiles';
+import EpiSection from "epiwf/util/section";
+import {DataFiles} from "../datafiles";
 
-import style from './style';
 
 const EpiNormal = (props) => (
   <EpiSection title="Sequencing Data From Normal Tissue Sample">

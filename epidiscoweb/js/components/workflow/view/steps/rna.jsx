@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import EpiSection from 'epiwf/util/section';
-import {DataFiles} from '../datafiles';
-
-import style from './style';
+import EpiSection from "epiwf/util/section";
+import {DataFiles} from "../datafiles";
 
 
 const EpiRNA = (props) => (

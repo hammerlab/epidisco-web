@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import {Grid, Row, Col} from 'react-flexbox-grid/lib';
-import {Step, StepButton, StepContent} from 'material-ui/Stepper';
-import TextField from 'material-ui/TextField';
+import {Grid, Row, Col} from "react-flexbox-grid/lib";
+import {Step, StepButton, StepContent} from "material-ui/Stepper";
+import TextField from "material-ui/TextField";
 
-import EpiSection from 'epiwf/util/section';
-import EpiActions from 'epi/actions';
+import EpiSection from "epiwf/util/section";
+import EpiActions from "epi/actions";
 
-import style from './style';
+import style from "./style";
 
 
 const EpiDescriptionStep = (props) => (

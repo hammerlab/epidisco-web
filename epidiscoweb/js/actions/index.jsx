@@ -1,4 +1,4 @@
-import EpiDispatcher from 'epi/dispatcher';
+import EpiDispatcher from "epi/dispatcher";
 
 const dispatch = (msg) => EpiDispatcher.dispatch(msg);
 const timers = {};
@@ -7,7 +7,7 @@ const pool = (msg, wait = 1000) => {
   let {action} = msg;
   let timerId = timers[action];
   if(timerId) {
-    clearTimeout(timerId)
+    clearTimeout(timerId);
   }
   timerId = setTimeout(() => dispatch(msg), wait);
   timers[action] = timerId;
@@ -59,32 +59,32 @@ const EpiActions = {
   },
   seq2hlaChanged(run) {
     pool({
-      action: 'seq2hla-changed',
+      action: "seq2hla-changed",
       run
     });
   },
   emailChanged(email) {
     pool({
-      action: 'email-changed',
+      action: "email-changed",
       email
     });
   },
   nameChanged(name) {
     pool({
-      action: 'name-changed',
+      action: "name-changed",
       name
     });
   },
   fileAdded(part, file) {
     dispatch({
-      action: 'file-added',
+      action: "file-added",
       part,
       file
     });
   },
   fileRemoved(part, fileIndex) {
     dispatch({
-      action: 'file-removed',
+      action: "file-removed",
       part,
       fileIndex
     });

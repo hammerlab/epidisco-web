@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, hashHistory, Redirect} from 'react-router';
+import React from "react";
+import ReactDOM from "react-dom";
+import {Router, Route, IndexRoute, hashHistory, Redirect} from "react-router";
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
-import EpiHome from 'epi/components/home';
-import EpiWelcome from 'epi/components/welcome';
-import {EpiView, EpiCreate} from 'epiwf';
+import EpiHome from "epi/components/home";
+import EpiWelcome from "epi/components/welcome";
+import {EpiView, EpiCreate} from "epiwf";
 
-import uuid from 'uuid';
+import uuid from "uuid";
 
 
 const newId = uuid.v1();
@@ -26,5 +26,5 @@ ReactDOM.render(
       <Route path="*" component={EpiWelcome} />
     </Route>
   </Router>,
-  document.getElementById('epidiscoweb')
+  document.getElementById("epidiscoweb")
 );

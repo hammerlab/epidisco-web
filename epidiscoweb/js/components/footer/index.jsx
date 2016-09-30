@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
-import FontIcon from 'material-ui/FontIcon';
-import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
-import Paper from 'material-ui/Paper';
-import IconButton from 'material-ui/IconButton';
-import ContactMail from 'material-ui/svg-icons/communication/contact-mail';
-import Code from 'material-ui/svg-icons/action/code';
-import CloudDownload from 'material-ui/svg-icons/file/cloud-download';
+import {BottomNavigation, BottomNavigationItem} from "material-ui/BottomNavigation";
+import Paper from "material-ui/Paper";
+import ContactMail from "material-ui/svg-icons/communication/contact-mail";
+import Code from "material-ui/svg-icons/action/code";
+import CloudDownload from "material-ui/svg-icons/file/cloud-download";
 
-import footer from './style';
+import footer from "./style";
 
 
 class EpiFooter extends Component {

@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import uuid from "uuid";
 
 /* Kick-start */
 const MockWorkflow = {
@@ -10,28 +10,28 @@ const MockWorkflow = {
     hlas: ["HLA-A*01:01", "HLA-A*02:01"],
     seq2hla: false,
     genome: "b37",
-    regions: 'https://hammerlab.org/regions.bed',
+    regions: "https://hammerlab.org/regions.bed",
     email: "epidisco@hammerlab.org"
   },
   normal: {
     files: [
-      { fileUri1: 'https://hammerlab.org/normal1.bam', fileType: 'SE' },
-      { fileUri1: 'https://hammerlab.org/normal2.bam', fileType: 'SE' }
+      { fileUri1: "https://hammerlab.org/normal1.bam", fileType: "SE" },
+      { fileUri1: "https://hammerlab.org/normal2.bam", fileType: "SE" }
     ]
   },
   tumor: {
     files: [
-      { fileUri1: 'https://hammerlab.org/tumor1.bam', fileType: 'SE' },
-      { fileUri1: 'https://hammerlab.org/tumor2.bam', fileType: 'SE' },
-      { fileUri1: 'https://hammerlab.org/tumor3.bam', fileType: 'SE' }
+      { fileUri1: "https://hammerlab.org/tumor1.bam", fileType: "SE" },
+      { fileUri1: "https://hammerlab.org/tumor2.bam", fileType: "SE" },
+      { fileUri1: "https://hammerlab.org/tumor3.bam", fileType: "SE" }
     ]
   },
   rna: {
     files: [
       {
-        fileUri1: 'https://hammerlab.org/rna1.bam',
-        fileUri2: 'https://hammerlab.org/rna2.bam',
-        fileType: 'PE'
+        fileUri1: "https://hammerlab.org/rna1.bam",
+        fileUri2: "https://hammerlab.org/rna2.bam",
+        fileType: "PE"
       }
     ]
   },
