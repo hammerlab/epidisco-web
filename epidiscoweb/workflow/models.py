@@ -2,8 +2,7 @@
 """User models."""
 import datetime as dt
 
-from epidiscoweb.database import Column, Model, SurrogatePK, db, reference_col, relationship
-from epidiscoweb.extensions import bcrypt
+from epidiscoweb.database import Column, Model, SurrogatePK, db
 
 
 class Workflow(SurrogatePK, Model):
@@ -17,12 +16,12 @@ class Workflow(SurrogatePK, Model):
 
     def __init__(self, workflow_id, email, workflow, **kwargs):
         """Create instance."""
-        db.Model.__init__(self, username=username, email=email, **kwargs)
-        if password:
-            self.set_password(password)
-        else:
-            self.password = None
+        db.Model.__init__(self,
+                          workflow_id=workflow_id,
+                          email=email,
+                          workflow=workflow,
+                          **kwargs)
 
     def __repr__(self):
         """Represent instance as a unique string."""
-        return '<Workflow({wid!r})>'.format(wid=workflow_id)
+        return '<Workflow({wid!r})>'.format(wid=self.workflow_id)

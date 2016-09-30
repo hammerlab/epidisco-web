@@ -2,9 +2,9 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from epidiscoweb import commands, public, user, workflow, apis
+from epidiscoweb import apis, commands, public, user, workflow
 from epidiscoweb.assets import assets
-from epidiscoweb.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate
+from epidiscoweb.extensions import bcrypt, cache, db, debug_toolbar, login_manager, migrate
 from epidiscoweb.settings import ProdConfig
 
 
@@ -23,8 +23,11 @@ def create_app(config_object=ProdConfig):
     register_apis(app)
     return app
 
+
 def register_apis(app):
-    apis.register_apis(app);
+    """Register RESTful API components."""
+    apis.register_apis(app)
+
 
 def register_extensions(app):
     """Register Flask extensions."""
@@ -32,7 +35,6 @@ def register_extensions(app):
     bcrypt.init_app(app)
     cache.init_app(app)
     db.init_app(app)
-    #csrf_protect.init_app(app)
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
