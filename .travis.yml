@@ -13,6 +13,8 @@ script:
   # Set the isolated environment
   - conda create -q -n epitest python=3
   - source activate epitest
+  - export FLASK_APP=$(pwd)/autoapp.py
+  - export FLASK_DEBUG=1
   # Install requirements
   - pip install -r requirements/dev.txt
   - npm install
