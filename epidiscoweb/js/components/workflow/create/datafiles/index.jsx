@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
@@ -8,6 +8,7 @@ import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
 
 import EpiActions from "epi/actions";
+import {SamplePropType, FilePropType} from "epi/proptypes";
 
 import {Grid, Row, Col} from "react-flexbox-grid/lib";
 
@@ -113,6 +114,12 @@ class DataFile extends React.Component {
     );
   }
 }
+DataFile.propTypes = {
+  file: PropTypes.shape(FilePropType).isRequired,
+  floatingLabelText: PropTypes.string.isRequired,
+  removable: PropTypes.bool.isRequired,
+  fileIndex: PropTypes.number
+};
 
 const DataFiles = (props) => {
   const files = props.files || [];
@@ -143,5 +150,8 @@ const DataFiles = (props) => {
     </Grid>
   );
 };
+DataFiles.propTypes = Object.assign({
+  floatingLabelText: PropTypes.string.isRequired
+}, SamplePropType);
 
 export {DataFiles, DataFile};

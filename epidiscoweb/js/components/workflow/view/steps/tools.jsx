@@ -9,6 +9,7 @@ import Subheader from "material-ui/Subheader";
 import Divider from "material-ui/Divider";
 
 import EpiSection from "epiwf/util/section";
+import {EpiPropType} from "epi/proptypes";
 
 import {Row, Col} from "react-flexbox-grid/lib";
 
@@ -101,5 +102,6 @@ const EpiTools = (props) => {
    </EpiSection>
   );
 };
+EpiTools.propTypes = EpiPropType;
 
 export default EpiTools;

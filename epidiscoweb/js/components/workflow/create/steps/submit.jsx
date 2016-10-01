@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 import {Link} from "react-router";
 
 import Dialog from "material-ui/Dialog";
@@ -12,6 +12,7 @@ import {Step, StepButton} from "material-ui/Stepper";
 import EpiSection from "epiwf/util/section";
 import EpiActions from "epi/actions";
 import EpiStore from "epi/store";
+import {EpiPropType} from "epi/proptypes";
 
 import style from "./style";
 
@@ -23,6 +24,11 @@ const EpiSubmitStep = (props) => (
     </StepButton>
   </Step>
 );
+EpiSubmitStep.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  key: PropTypes.string.isRquired,
+  completed: PropTypes.bool.isRquired
+};
 
 class EpiSubmit extends React.Component {
   constructor(props) {
@@ -114,5 +120,6 @@ class EpiSubmit extends React.Component {
     );
   }
 }
+EpiSubmit.propTypes = EpiPropType;
 
 export {EpiSubmit, EpiSubmitStep};

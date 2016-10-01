@@ -1,9 +1,10 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import {Step, StepButton, StepContent} from "material-ui/Stepper";
 
 import EpiSection from "epiwf/util/section";
 import {DataFiles} from "../datafiles";
+import {EpiPropType} from "epi/proptypes";
 
 
 const EpiTumorStep = (props) => (
@@ -20,6 +21,11 @@ const EpiTumorStep = (props) => (
     </StepContent>
   </Step>
 );
+EpiTumorStep.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  key: PropTypes.string.isRquired,
+  completed: PropTypes.bool.isRquired
+};
 
 const EpiTumor = (props) => (
  <EpiSection title="Sequencing Data From Tumor Tissue Sample">
@@ -31,5 +37,6 @@ const EpiTumor = (props) => (
   />
  </EpiSection>
 );
+EpiTumor.propTypes = EpiPropType;
 
 export {EpiTumor, EpiTumorStep};

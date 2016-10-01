@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 import {Stepper} from "material-ui/Stepper";
 
 import style from "./style";
@@ -19,7 +19,7 @@ class EpiStepper extends React.Component {
     this.setState({completed: completed.concat(stepIndex)});
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(nextProps) {
     const {stepIndex} = nextProps;
     if(stepIndex != this.props.stepIndex) {
       this.setState({stepIndex});
@@ -27,7 +27,7 @@ class EpiStepper extends React.Component {
   }
 
   render() {
-    const {stepIndex, completed} = this.state;
+    const {stepIndex} = this.state;
 
     return (
       <div className={style.main}>
@@ -42,5 +42,10 @@ class EpiStepper extends React.Component {
     );
   }
 }
+EpiStepper.propTypes = {
+  stepIndex: PropTypes.number.isRequired,
+  completed: PropTypes.bool,
+  children: PropTypes.node.isRequired
+};
 
 export default EpiStepper;

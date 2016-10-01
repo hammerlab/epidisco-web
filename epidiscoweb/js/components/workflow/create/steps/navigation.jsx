@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import {Row, Col} from "react-flexbox-grid/lib";
 
@@ -37,6 +37,10 @@ const EpiNavigation = ({stepIndex, numberOfSteps}) => {
       </Col>
     </Row>
   );
+};
+EpiNavigation.propTypes = {
+  stepIndex: PropTypes.number.isRequired,
+  numberOfSteps: PropTypes.number.isRequired
 };
 
 export default EpiNavigation;

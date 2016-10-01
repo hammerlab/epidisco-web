@@ -4,6 +4,7 @@ import {Grid, Row, Col} from "react-flexbox-grid/lib";
 import TextField from "material-ui/TextField";
 
 import EpiSection from "epiwf/util/section";
+import {EpiPropType} from "epi/proptypes";
 
 
 const EpiDescription = (props) => {
@@ -36,5 +37,6 @@ const EpiDescription = (props) => {
     </EpiSection>
   );
 };
+EpiDescription.propTypes = EpiPropType;
 
 export default EpiDescription;

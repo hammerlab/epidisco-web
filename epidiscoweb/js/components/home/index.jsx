@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import {Grid, Row, Col} from "react-flexbox-grid/lib";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -29,5 +29,8 @@ class EpiHome extends React.Component {
     );
   }
 }
+EpiHome.propTypes = {
+  children: PropTypes.node.isRequired
+};
 
 export default EpiHome;

@@ -2,6 +2,7 @@ import React from "react";
 
 import EpiSection from "epiwf/util/section";
 import {DataFiles} from "../datafiles";
+import {EpiPropType} from "epi/proptypes";
 
 
 const EpiTumor = (props) => (
@@ -12,5 +13,6 @@ const EpiTumor = (props) => (
   />
  </EpiSection>
 );
+EpiTumor.propTypes = EpiPropType;
 
 export default EpiTumor;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import {Grid, Row, Col} from "react-flexbox-grid/lib";
 import {Step, StepButton, StepContent} from "material-ui/Stepper";
@@ -6,8 +6,7 @@ import TextField from "material-ui/TextField";
 
 import EpiSection from "epiwf/util/section";
 import EpiActions from "epi/actions";
-
-import style from "./style";
+import {EpiPropType} from "epi/proptypes";
 
 
 const EpiDescriptionStep = (props) => (
@@ -24,6 +23,11 @@ const EpiDescriptionStep = (props) => (
     </StepContent>
   </Step>
 );
+EpiDescriptionStep.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  key: PropTypes.string.isRquired,
+  completed: PropTypes.bool.isRquired
+};
 
 const EpiDescription = (props) => {
   const desc = props.workflow.description;
@@ -57,5 +61,6 @@ const EpiDescription = (props) => {
     </EpiSection>
   );
 };
+EpiDescription.propTypes = EpiPropType;
 
 export {EpiDescription, EpiDescriptionStep};

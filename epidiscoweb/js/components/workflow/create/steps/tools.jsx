@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import Toggle from "material-ui/Toggle";
 import TextField from "material-ui/TextField";
@@ -11,6 +11,7 @@ import Divider from "material-ui/Divider";
 
 import EpiSection from "epiwf/util/section";
 import EpiActions from "epi/actions";
+import {EpiPropType} from "epi/proptypes";
 
 import {Row, Col} from "react-flexbox-grid/lib";
 
@@ -38,6 +39,11 @@ const EpiToolsStep = (props) => (
     </StepContent>
   </Step>
 );
+EpiToolsStep.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  key: PropTypes.string.isRquired,
+  completed: PropTypes.bool.isRquired
+};
 
 const EpiTools = (props) => {
   const variantCallers = props.workflow.tools.map(
@@ -140,5 +146,6 @@ const EpiTools = (props) => {
    </EpiSection>
   );
 };
+EpiTools.propTypes = EpiPropType;
 
 export {EpiTools, EpiToolsStep};

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import {Row, Col} from "react-flexbox-grid/lib";
 
@@ -91,5 +91,10 @@ class EpiCreate extends React.Component {
     );
   }
 }
+EpiCreate.propTypes = {
+  params: PropTypes.shape({
+    workflowId: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default EpiCreate;

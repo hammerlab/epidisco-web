@@ -1,10 +1,12 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
 
 import {Grid, Row, Col} from "react-flexbox-grid/lib";
+
+import {SamplePropType, FilePropType} from "epi/proptypes";
 
 import style from "./style";
 
@@ -77,6 +79,12 @@ class DataFile extends React.Component {
     );
   }
 }
+DataFile.propTypes = {
+  file: PropTypes.shape(FilePropType).isRequired,
+  floatingLabelText: PropTypes.string.isRequired,
+  removable: PropTypes.bool.isRequired,
+  fileIndex: PropTypes.number.isRequired
+};
 
 const DataFiles = (props) => {
   const files = props.files || [];
@@ -98,5 +106,8 @@ const DataFiles = (props) => {
     </Grid>
   );
 };
+DataFiles.propTypes = Object.assign({
+  floatingLabelText: PropTypes.string.isRequired
+}, SamplePropType);
 
 export {DataFiles, DataFile};

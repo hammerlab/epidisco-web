@@ -2,6 +2,7 @@ import React from "react";
 
 import EpiSection from "epiwf/util/section";
 import {DataFiles} from "../datafiles";
+import {EpiPropType} from "epi/proptypes";
 
 
 const EpiNormal = (props) => (
@@ -12,5 +13,6 @@ const EpiNormal = (props) => (
     />
   </EpiSection>
 );
+EpiNormal.propTypes = EpiPropType;
 
 export default EpiNormal;
