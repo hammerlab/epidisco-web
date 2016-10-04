@@ -6,7 +6,8 @@ Web interface to easily describe and submit epidisco jobs
 Quickstart
 ----------
 
-First, set your app’s secret key as an environment variable. For example, add the following to `.bashrc` or `.bash_profile`.
+First, set your app’s secret key as an environment variable. For example, add
+the following to `.bashrc` or `.bash_profile`.
 
 ```sourceCode
 export EPIDISCO_WEB_SECRET='something-really-secret'
@@ -16,9 +17,21 @@ Before running shell commands, set the `FLASK_APP` and `FLASK_DEBUG` environment
 
     export FLASK_APP=/path/to/epidisco-web/autoapp.py
     export FLASK_DEBUG=1
+    
+As well as your Mailgun keys, if you'd like to send emails:
 
-Although optional, it is highly recommended that you work within
-an isolated Python environment (such as [conda](http://conda.pydata.org/miniconda.html)) for the development:
+    export MAILGUN_DOMAIN=mail.example.com
+    export MAILGUN_API_KEY=key-foo
+    export MAILGUN_VALIDATION_KEY=pubkey-foo
+    export ADMIN_FROM_EMAIL=foo@example.com
+    
+If not, be sure to set the `DISABLE_EMAILS` variable to `true` (`export
+DISABLE_EMAILS=true`) so that epidisco-web can be sure you didn't want to send
+emails.
+
+Although optional, it is highly recommended that you work within an isolated
+Python environment (such as [conda](http://conda.pydata.org/miniconda.html)) for
+the development:
 
     conda create -n eweb python=3
     source activate eweb
@@ -37,7 +50,8 @@ and bundle the Javascript and run Flask:
 
 Browsing to [localhost:8080](localhost:8080), you will see a pretty welcome screen.
 
-Once you have installed your DBMS, run the following to create your app’s database tables and perform the initial migration :
+Once you have installed your DBMS, run the following to create your app’s
+database tables and perform the initial migration :
 
     flask db init
     flask db migrate
@@ -47,7 +61,8 @@ Once you have installed your DBMS, run the following to create your app’s data
 Deployment
 ----------
 
-In your production environment, make sure the `FLASK_DEBUG` environment variable is unset or is set to `0`, so that `ProdConfig` is used.
+In your production environment, make sure the `FLASK_DEBUG` environment variable
+is unset or is set to `0`, so that `ProdConfig` is used.
 
 Shell
 -----

@@ -15,9 +15,8 @@ class WorkflowAPI(Resource):
     def put(self, id):
         """Persist workflow and indexes via its id."""
         workflow = request.form['data']
-        wf = open('/epi/submissions/{}.json'.format(id), 'w')
-        wf.write(workflow)
-        wf.close()
+        with open('/epi/submissions/{}.json'.format(id), 'w') as wf:
+            wf.write(workflow)
         return workflow
 
     def delete(self, id):
