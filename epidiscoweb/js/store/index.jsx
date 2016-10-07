@@ -3,12 +3,15 @@ import EventEmitter from "events";
 import EpiDispatcher from "epi/dispatcher";
 import {createEmptyWorkflow} from "epiwf/util";
 
+import uuid from "uuid";
+
+
 const CHANGE_EVENT = "change";
 
 class EpiStore extends EventEmitter {
   constructor() {
     super();
-    this.workflow = createEmptyWorkflow();
+    this.workflow = createEmptyWorkflow(uuid.v1());
   }
 
   getWorkflowState() {

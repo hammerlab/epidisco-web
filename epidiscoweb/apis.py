@@ -10,7 +10,7 @@ class WorkflowAPI(Resource):
     def get(self, id):
         """Obtain workflow identified by the id."""
         workflow = open('/epi/submissions/{}.json'.format(id), 'r')
-        return {'workflow': workflow.read()}
+        return workflow.read()
 
     def put(self, id):
         """Persist workflow and indexes via its id."""

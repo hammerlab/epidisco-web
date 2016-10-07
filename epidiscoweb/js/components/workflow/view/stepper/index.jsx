@@ -16,14 +16,14 @@ const EpiStepper = () => (
   <Grid fluid className={style.stepper}>
     <Row center="xs">
       <Col xs={12}>
-        <Stepper activeStep={2}>
+        <Stepper activeStep={0}>
           <Step completed={true}>
             <StepLabel>Workflow submitted</StepLabel>
           </Step>
-          <Step completed={true}>
-            <StepLabel>Workflow completed</StepLabel>
+          <Step completed={false}>
+            <StepLabel>Workflow running</StepLabel>
           </Step>
-          <Step completed={true}>
+          <Step completed={false}>
             <StepLabel>Results are available</StepLabel>
           </Step>
         </Stepper>
@@ -32,7 +32,7 @@ const EpiStepper = () => (
     <Row center="xs">
       <Col xs={4}>
         <RaisedButton
-          label="View Results"
+          label="View Sample Report"
           icon={<Assignment />}
           fullWidth={true}
           href="https://storage.googleapis.com/protoepidisco-results/training-demo/index.html"

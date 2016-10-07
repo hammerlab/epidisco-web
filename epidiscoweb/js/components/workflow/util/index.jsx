@@ -1,5 +1,3 @@
-import MockWorkflow from "epi/mock-workflow";
-
 const createEmptyWorkflow = (workflowId) => ({
   stepIndex: 0,
   submitted: false,
@@ -24,7 +22,16 @@ const createEmptyWorkflow = (workflowId) => ({
 });
 
 const fetchWorkflow = (workflowId, callback) => {
-  callback(MockWorkflow);
+  let url = `/workflows/${workflowId}/`;
+  let xmlHttp = new XMLHttpRequest();
+  xmlHttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let workflow = JSON.parse(JSON.parse(xmlHttp.response));
+      callback(workflow);
+    }
+  };
+  xmlHttp.open("GET", url, true);
+  xmlHttp.send();
 };
 
 export {createEmptyWorkflow, fetchWorkflow};
