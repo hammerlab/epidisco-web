@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo 'no test yet'",
-    "bundle": "webpack --progress --colors --optimize-minimize",
+    "bundle": "NODE_ENV=production webpack --progress --colors --optimize-minimize",
     "watch": "webpack --progress --colors --watch --display-error-details",
     "lint": "eslint epidiscoweb/js/ --ext .js --ext .jsx --cache"
   },
