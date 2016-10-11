@@ -3,6 +3,25 @@ epidisco-web
 
 Web interface to easily describe and submit epidisco jobs
 
+Using the docker image
+----------------------
+
+If you would like to deploy Epidisco Web using Docker,
+you can use the one the ready-to-go images from [dockerhub:hammerlab/epidisco-web](https://hub.docker.com/r/hammerlab/epidisco-web/):
+
+```
+  $ docker pull hammerlab/epidisco-web
+
+  # Simple settings
+  $ export NUMOFWORKERS=1
+  $ export EPIPORT=8000
+
+  # Run the image in daemon mode (where gunicorn serves the website)
+  $ docker run -d -p $EPIPORT:$EPIPORT hammerlab/epidisco-web -w $NUMOFWORKERS -b 0.0.0.0:$EPIPORT
+```
+
+and browse to [localhost:8000](http://localhost:8000).
+
 Quickstart
 ----------
 
@@ -17,14 +36,14 @@ Before running shell commands, set the `FLASK_APP` and `FLASK_DEBUG` environment
 
     export FLASK_APP=/path/to/epidisco-web/autoapp.py
     export FLASK_DEBUG=1
-    
+
 As well as your Mailgun keys, if you'd like to send emails:
 
     export MAILGUN_DOMAIN=mail.example.com
     export MAILGUN_API_KEY=key-foo
     export MAILGUN_VALIDATION_KEY=pubkey-foo
     export ADMIN_FROM_EMAIL=foo@example.com
-    
+
 If not, be sure to set the `DISABLE_EMAILS` variable to `true` (`export
 DISABLE_EMAILS=true`) so that epidisco-web can be sure you didn't want to send
 emails.
